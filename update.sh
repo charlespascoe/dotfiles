@@ -15,3 +15,7 @@ fi
 if [ ! -f ~/.bash_aliases ]; then
     ln -s "$PWD/bash_aliases" ~/.bash_aliases
 fi
+
+if [ ! -f ~/.dircolors ]; then
+    ln -s "$PWD/dircolors" ~/.dircolors
+fi
