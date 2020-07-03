@@ -1,0 +1,60 @@
+# Configuration for Alacritty, the GPU enhanced terminal emulator.
+
+window:
+  # Spread additional padding evenly around the terminal content.
+  dynamic_padding: true
+  startup_mode: Fullscreen
+
+font:
+  normal:
+    family: JetBrains Mono
+    style: Regular
+
+  bold:
+    family: JetBrains Mono
+    style: Bold
+
+  italic:
+    family: JetBrains Mono
+    style: Italic
+
+  size: 9.0
+
+  use_thin_strokes: true
+
+live_config_reload: true
+
+mouse:
+  hide_when_typing: true
+
+scrolling:
+  # No history (use tmux for history)
+  history: 0
+
+key_bindings:
+  - { key: Space, mods: Control, chars: "\x00"}
+
+colors:
+  primary:
+    background: '#000000'
+    foreground: '#c7c7c7'
+
+  normal:
+    black:   '#000000'
+    red:     '#c91b00'
+    green:   '#00c200'
+    yellow:  '#c7c400'
+    blue:    '#3c5fff'
+    magenta: '#c930c7'
+    cyan:    '#00c5c7'
+    white:   '#c7c7c7'
+
+  bright:
+    black:   '#676767'
+    red:     '#e21c13'
+    green:   '#5ffa68'
+    yellow:  '#fefb67'
+    blue:    '#6871ff'
+    magenta: '#ff76ff'
+    cyan:    '#5ffdff'
+    white:   '#ffffff'
