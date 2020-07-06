@@ -17,7 +17,7 @@ alias gap='git add -p'
 alias repos='ssh git@vps "ls repos"'
 alias ugr='git remote set-url origin'
 alias gpat='git push --all && git push --tags'
-alias ci='EDITOR="vim -c ShowDiff" git ci'
+alias ci='EDITOR="vim -c ShowDiff -c startinsert!" git ci'
 function create-repo() { ssh git@vps "./create_repo.sh $1"; }
 function fix() {
     vim "$1"
