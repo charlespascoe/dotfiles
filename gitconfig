@@ -1,0 +1,21 @@
+[user]
+    name = Charles Pascoe
+    email = charles@cpascoe.co.uk
+[alias]
+    st = status
+    di = diff
+    ci = commit
+    co = checkout
+    br = branch
+    ds = diff --cached
+    dn = diff --no-index
+    nm = branch --no-merged
+    ci-count = rev-list HEAD --count
+    unstage = reset HEAD --
+    last = cat-file commit HEAD
+[push]
+    default = simple
+[color]
+    ui = true
+[core]
+    excludesfile = ~/.gitignore_global

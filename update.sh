@@ -19,3 +19,11 @@ fi
 if [ ! -f ~/.dircolors ]; then
     ln -s "$PWD/dircolors" ~/.dircolors
 fi
+
+if [ ! -f ~/.gitconfig ]; then
+    ln -s "$PWD/gitconfig" ~/.gitconfig
+fi
+
+if [ ! -f ~/.gitignore_global ]; then
+    ln -s "$PWD/gitignore_global" ~/.gitignore_global
+fi
