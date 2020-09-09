@@ -47,6 +47,8 @@ function fvs() {
     rvs && vs $@
 }
 
+alias draft='vim -c "cd ~/drafts/ | au BufUnload <buffer> ExportHtmlClipboard | startinsert" ~/drafts/`date +"%F_%H:%m:%S"`.bn'
+
 # Utils
 alias c='clear'
 alias hc='history -c'
@@ -57,4 +59,3 @@ function catt() { cat $1; echo; }
 function nd() { mkdir -p $1; cd $1; }
 function ireplace { ag -l "$1" | xargs sed -i -e "s/${1//\//\\\/}/${2//\//\\\/}/g"; }
 function replace { ag -l "$1" | xargs sed -i.bak -e "s/${1//\//\\\/}/${2//\//\\\/}/g"; }
-
