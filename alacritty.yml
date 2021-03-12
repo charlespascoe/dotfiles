@@ -33,6 +33,8 @@ scrolling:
 
 key_bindings:
   - { key: Space, mods: Control, chars: "\x00" }
+  # Fixes a strange issue with Alacritty (https://github.com/alacritty/alacritty/issues/1359)
+  - { key: Q, mods: Control, chars: "\x11" }
 
 colors:
   primary:
@@ -58,3 +60,5 @@ colors:
     magenta: '#ff76ff'
     cyan:    '#5ffdff'
     white:   '#ffffff'
+
+mouse_bindings: []
