@@ -47,7 +47,8 @@ function fvs() {
     rvs && vs $@
 }
 
-alias draft='vim -c "cd ~/drafts/ | au BufUnload <buffer> ExportHtmlClipboard | startinsert" ~/drafts/`date +"%F_%H:%m:%S"`.bn'
+alias draft='vim -c "cd ~/drafts/" -c "au BufUnload <buffer> ExportToClipboard" -c "startinsert" ~/drafts/`date +"%F_%H:%m:%S"`.bn'
+alias draft-rtf='vim -c "cd ~/drafts/" -c "au BufUnload <buffer> ExportRTFToClipboard" -c "startinsert" ~/drafts/`date +"%F_%H:%m:%S"`.bn'
 
 # Utils
 alias c='clear'
