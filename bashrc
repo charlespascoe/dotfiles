@@ -66,4 +66,3 @@ if [ -d "$COMMON_SCRIPTS_DIR" ]; then
 else
     function __git_ps1() { echo; }
 fi
-
