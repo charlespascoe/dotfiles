@@ -1,0 +1,39 @@
+#!/bin/zsh
+
+alias ea='vim ~/.zsh_aliases && . ~/.zsh_aliases'
+
+# Git
+alias ci='EDITOR="vim -c ShowDiff -c startinsert!" git ci'
+alias gap='git add -p'
+
+# Tmux
+alias dev='start-agent && tm dev'
+alias tmls='tmux ls'
+tm() { tmux -u attach -t $1 || tmux -u new -s $1; }
+alias tsb='tmux show-buffer'
+
+# Vim
+vs() {
+    if [ -f Session.vim ]; then
+        vim -S Session.vim $@
+    else
+        vim -c 'Obsession' $@
+    fi
+}
+
+rvs() {
+    rm -f Session.vim
+}
+
+fvs() {
+    rvs && vs $@
+}
+
+# Utils
+alias c='clear'
+alias hc='history -c'
+alias ls='/opt/homebrew/bin/gls -lh --color=always --group-directories-first'
+alias start-agent='eval `ssh-agent` && ssh-add'
+alias stop-agent='killall ssh-agent'
+catt() { cat $1; echo; }
+nd() { mkdir -p $1; cd $1; }
