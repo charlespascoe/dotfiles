@@ -1,4 +1,3 @@
-export PATH="/opt/homebrew/bin:/Users/charles/.vim-conf/bin/:$PATH"
 . ~/.zsh_aliases
 
 export EDITOR=vim
