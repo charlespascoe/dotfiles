@@ -1,14 +1,16 @@
 [user]
     name = Charles Pascoe
-    email = charles@cpascoe.co.uk
 [alias]
     st = status
+    sw = switch
     di = diff
     ci = commit
     co = checkout
     br = branch
     ds = diff --cached
     dn = diff --no-index
+    u = push
+    d = pull
     nm = branch --no-merged
     ci-count = rev-list HEAD --count
     unstage = reset HEAD --
