@@ -1,10 +1,14 @@
 #!/bin/zsh
 
 alias ea='vim ~/.zsh_aliases && . ~/.zsh_aliases'
+alias e='vim'
+
+# Docker
+alias doc=docker
 
 # Git
 alias ci='EDITOR="vim -c ShowDiff -c startinsert!" git ci'
-alias gap='git add -p'
+alias ga='git add -p'
 
 # Tmux
 alias dev='start-agent && tm dev'
@@ -13,7 +17,7 @@ tm() { tmux -u attach -t $1 || tmux -u new -s $1; }
 alias tsb='tmux show-buffer'
 
 # Vim
-vs() {
+es() {
     if [ -f Session.vim ]; then
         vim -S Session.vim $@
     else
@@ -21,12 +25,12 @@ vs() {
     fi
 }
 
-rvs() {
+res() {
     rm -f Session.vim
 }
 
-fvs() {
-    rvs && vs $@
+fes() {
+    res && es $@
 }
 
 # Utils
