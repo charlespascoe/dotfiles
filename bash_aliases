@@ -9,11 +9,11 @@ alias fgrep='fgrep --color=auto'
 alias formatjson='python -m json.tool'
 
 # Bash Aliases
-alias ba='. ~/.bash_aliases'
-alias eba='vim ~/.bash_aliases && ba'
+alias ea='vim ~/.bash_aliases && . ~/.bash_aliases'
+alias e='vim'
 
 # Git
-alias gap='git add -p'
+alias ga='git add -p'
 alias repos='ssh git@vps "ls repos"'
 alias ugr='git remote set-url origin'
 alias gpat='git push --all && git push --tags'
@@ -31,7 +31,7 @@ function tm() { tmux -u attach -t $1 || tmux -u new -s $1; }
 alias tsb='tmux show-buffer'
 
 # Vim
-function vs() {
+function es() {
     if [ -f Session.vim ]; then
         vim -S Session.vim $@
     else
@@ -39,12 +39,12 @@ function vs() {
     fi
 }
 
-function rvs() {
+function res() {
     rm -f Session.vim
 }
 
-function fvs() {
-    rvs && vs $@
+function fes() {
+    res && es $@
 }
 
 alias draft='vim -c "cd ~/drafts/" -c "au BufUnload <buffer> ExportToClipboard" -c "startinsert" ~/drafts/`date +"%F_%H:%m:%S"`.bn'
