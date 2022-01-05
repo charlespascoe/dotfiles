@@ -16,6 +16,9 @@ setopt SHARE_HISTORY
 setopt hist_ignore_space
 setopt histignoredups
 
+bindkey -v
+bindkey '^R' history-incremental-search-backward
+
 # Git
 autoload -Uz compinit && compinit
 autoload -Uz vcs_info

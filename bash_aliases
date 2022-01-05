@@ -8,6 +8,9 @@ alias fgrep='fgrep --color=auto'
 # JSON
 alias formatjson='python -m json.tool'
 
+# Docker
+alias doc=docker
+
 # Bash Aliases
 alias ea='vim ~/.bash_aliases && . ~/.bash_aliases'
 alias e='vim'

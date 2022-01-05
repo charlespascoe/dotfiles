@@ -39,5 +39,6 @@ alias hc='history -c'
 alias ls='/opt/homebrew/bin/gls -lh --color=always --group-directories-first'
 alias start-agent='eval `ssh-agent` && ssh-add'
 alias stop-agent='killall ssh-agent'
+alias py='python3'
 catt() { cat $1; echo; }
 nd() { mkdir -p $1; cd $1; }
