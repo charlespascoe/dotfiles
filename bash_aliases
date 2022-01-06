@@ -13,7 +13,6 @@ alias doc=docker
 
 # Bash Aliases
 alias ea='vim ~/.bash_aliases && . ~/.bash_aliases'
-alias e='vim'
 
 # Git
 alias ga='git add -p'
@@ -34,6 +33,8 @@ function tm() { tmux -u attach -t $1 || tmux -u new -s $1; }
 alias tsb='tmux show-buffer'
 
 # Vim
+alias e='vim'
+
 function es() {
     if [ -f Session.vim ]; then
         vim -S Session.vim $@
