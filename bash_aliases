@@ -40,7 +40,6 @@ alias draft-rtf='vim -c "cd ~/drafts/" -c "au BufUnload <buffer> ExportRTFToClip
 
 # Misc
 alias c='clear'
-alias n='g'
 alias hc='history -c'
 alias ls='/bin/ls -lh --color=always --group-directories-first'
 alias start-agent='eval `ssh-agent` && ssh-add'
