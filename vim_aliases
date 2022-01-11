@@ -1,0 +1,52 @@
+#!/bin/bash
+
+alias e='vim'
+
+function sess_path() {
+    session=Session.vim
+
+    if [ -d .git ]; then
+        branch_name=$(git symbolic-ref -q HEAD)
+        branch_name=${branch_name##refs/heads/}
+        session=.sessions/${branch_name:-Session}.vim
+    fi
+
+    echo "$session"
+}
+
+function es() {
+    session="$(sess_path)"
+
+    if [ -d .git ]; then
+        if [ -f .sessions/_active ]; then
+            echo "Can't start a new session because there is an existing session"
+            return 1
+        fi
+
+        mkdir -p .sessions
+        touch .sessions/_active
+    fi
+
+    if [ -f "$session" ]; then
+        vim -S "$session" $@
+    else
+        vim -c "Obsession $session" $@
+    fi
+
+    if [ -d .sessions ]; then
+        rm -f .sessions/_active
+    fi
+}
+
+function res() {
+    if [ -f .sessions/_active ]; then
+        echo "Can't remove session file because it's in use"
+        return 1
+    fi
+
+    rm -f "$(sess_path)"
+}
+
+# function fes() {
+#     res && es $@
+# }

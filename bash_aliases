@@ -33,29 +33,14 @@ function tm() { tmux -u attach -t $1 || tmux -u new -s $1; }
 alias tsb='tmux show-buffer'
 
 # Vim
-alias e='vim'
-
-function es() {
-    if [ -f Session.vim ]; then
-        vim -S Session.vim $@
-    else
-        vim -c 'Obsession' $@
-    fi
-}
-
-function res() {
-    rm -f Session.vim
-}
-
-function fes() {
-    res && es $@
-}
+source ~/.dotfiles/vim_aliases
 
 alias draft='vim -c "cd ~/drafts/" -c "au BufUnload <buffer> ExportToClipboard" -c "startinsert" ~/drafts/`date +"%F_%H:%m:%S"`.bn'
 alias draft-rtf='vim -c "cd ~/drafts/" -c "au BufUnload <buffer> ExportRTFToClipboard" -c "startinsert" ~/drafts/`date +"%F_%H:%m:%S"`.bn'
 
-# Utils
+# Misc
 alias c='clear'
+alias n='g'
 alias hc='history -c'
 alias ls='/bin/ls -lh --color=always --group-directories-first'
 alias start-agent='eval `ssh-agent` && ssh-add'

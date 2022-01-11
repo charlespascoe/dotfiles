@@ -1,7 +1,6 @@
 #!/bin/zsh
 
 alias ea='vim ~/.zsh_aliases && . ~/.zsh_aliases'
-alias e='vim'
 
 # Docker
 alias doc=docker
@@ -17,21 +16,7 @@ tm() { tmux -u attach -t $1 || tmux -u new -s $1; }
 alias tsb='tmux show-buffer'
 
 # Vim
-es() {
-    if [ -f Session.vim ]; then
-        vim -S Session.vim $@
-    else
-        vim -c 'Obsession' $@
-    fi
-}
-
-res() {
-    rm -f Session.vim
-}
-
-fes() {
-    res && es $@
-}
+source ~/.dotfiles/vim_aliases
 
 # Utils
 alias c='clear'
