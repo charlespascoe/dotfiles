@@ -47,6 +47,6 @@ function res() {
     rm -f "$(sess_path)"
 }
 
-# function fes() {
-#     res && es $@
-# }
+function fes() {
+    res && es $@
+}
