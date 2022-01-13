@@ -2,7 +2,10 @@
 
 export EDITOR=vim
 
+# PATH tweaks
+export PATH="$PATH:$HOME/.dotfiles/bin"
 
+# Prompt
 PROMPT='%F{33}%~$vcs_info_msg_0_ %F{36}%#%f '
 
 # Pass through Ctrl-S

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+git remote prune origin && \
+git branch -vv | \
+egrep -o '\[[^]]+\]' | \
+sed -n -e 's/^\[origin\/\(.*\): gone\]$/\1/p' | \
+xargs git br -d

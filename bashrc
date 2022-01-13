@@ -48,6 +48,9 @@ fi
 
 export EDITOR=vim
 
+# PATH tweaks
+export PATH="$PATH:$HOME/.dotfiles/bin"
+
 # Pass through Ctrl-S
 bind -r '\C-s'
 stty -ixon
