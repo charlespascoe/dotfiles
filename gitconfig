@@ -1,5 +1,7 @@
 [user]
     name = Charles Pascoe
+[init]
+    defaultBranch = main
 [alias]
     st = status
     sw = switch
