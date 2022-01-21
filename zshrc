@@ -1,5 +1,7 @@
 . ~/.zsh_aliases
 
+. ~/.dotfiles/bashmarks.sh
+
 export EDITOR=vim
 
 # PATH tweaks
