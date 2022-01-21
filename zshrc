@@ -29,9 +29,19 @@ autoload -Uz compinit && compinit
 autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
+
+# Show count of stashed changes
+function +vi-git-stash() {
+  if [[ -s ${hook_com[base]}/.git/refs/stash ]]; then
+    hook_com[misc]+="%F{242}$"
+  fi
+}
+
 setopt prompt_subst
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr '%F{green}+'
 zstyle ':vcs_info:*' unstagedstr '%F{202}*'
-zstyle ':vcs_info:git*' formats ' %F{220}%b%B%m%u%c%F{220}%%b%f'
+zstyle ':vcs_info:git*' formats ' %F{220}%b%B%u%c%m%F{220}%%b%f'
+zstyle ':vcs_info:git*' actionformats ' %F{220}%a|%b%B%u%c%m%F{220}%%b%f'
+zstyle ':vcs_info:git*+set-message:*' hooks git-stash
 zstyle ':vcs_info:*' enable git
