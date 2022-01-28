@@ -1,7 +1,3 @@
-. ~/.zsh_aliases
-
-. ~/.dotfiles/bashmarks.sh
-
 export EDITOR=vim
 
 # PATH tweaks
@@ -27,7 +23,13 @@ bindkey '^R' history-incremental-search-backward
 # Git
 autoload -Uz compinit && compinit
 autoload -Uz vcs_info
-precmd_vcs_info() { vcs_info }
+precmd_vcs_info() {
+  vcs_info
+
+  if [ -n "$vcs_info_msg_0_" ] && [[ ! "$vcs_info_msg_0_" =~ '[+*$]' ]]; then
+    vcs_info_msg_0_=" ${vcs_info_msg_0_:gs/ /}"
+  fi
+}
 precmd_functions+=( precmd_vcs_info )
 
 # Show count of stashed changes
@@ -41,7 +43,13 @@ setopt prompt_subst
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr '%F{green}+'
 zstyle ':vcs_info:*' unstagedstr '%F{202}*'
-zstyle ':vcs_info:git*' formats ' %F{220}%b%B%u%c%m%F{220}%%b%f'
-zstyle ':vcs_info:git*' actionformats ' %F{220}%a|%b%B%u%c%m%F{220}%%b%f'
+zstyle ':vcs_info:git*' formats ' %F{220}%b%B %u%c%m%F{220}%%b%f'
+zstyle ':vcs_info:git*' actionformats ' %F{220}%a|%b%B %u%c%m%F{220}%%b%f'
 zstyle ':vcs_info:git*+set-message:*' hooks git-stash
 zstyle ':vcs_info:*' enable git
+
+# Aliases and Utilities
+
+. ~/.zsh_aliases
+
+. ~/.dotfiles/bashmarks.sh
