@@ -18,6 +18,9 @@ alias tsb='tmux show-buffer'
 # Vim
 source ~/.dotfiles/vim_aliases
 
+alias draft='vim -c "cd ~/drafts/" -c "au BufUnload <buffer> ExportToClipboard" -c "startinsert" ~/drafts/`date +"%F_%H:%m:%S"`.bn'
+alias draft-rtf='vim -c "cd ~/drafts/" -c "au BufUnload <buffer> ExportRTFToClipboard" -c "startinsert" ~/drafts/`date +"%F_%H:%m:%S"`.bn'
+
 ## Edit dictation substitutions
 alias eds='vim -c "au BufUnload <buffer> DictationReloadSubstitutions" ~/.vim-conf/dictation_substitutions'
 
