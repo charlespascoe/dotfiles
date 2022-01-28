@@ -18,6 +18,9 @@ alias tsb='tmux show-buffer'
 # Vim
 source ~/.dotfiles/vim_aliases
 
+## Edit dictation substitutions
+alias eds='vim -c "au BufUnload <buffer> DictationReloadSubstitutions" ~/.vim-conf/dictation_substitutions'
+
 # Utils
 alias c='clear'
 alias hc='history -c'
