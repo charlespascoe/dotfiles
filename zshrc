@@ -48,6 +48,41 @@ zstyle ':vcs_info:git*' actionformats ' %F{220}%a|%b%B %u%c%m%F{220}%%b%f'
 zstyle ':vcs_info:git*+set-message:*' hooks git-stash
 zstyle ':vcs_info:*' enable git
 
+# Vi mode
+
+function zvm_config() {
+  ZVM_CURSOR_STYLE_ENABLED=false
+}
+
+function zvm_after_lazy_keybindings() {
+  zvm_bindkey vicmd 'l' vi-backward-word
+  zvm_bindkey vicmd 'L' vi-backward-blank-word
+}
+
+function zvm_after_select_vi_mode() {
+  color=36
+
+  case $ZVM_MODE in
+    $ZVM_MODE_NORMAL)
+      color=245
+    ;;
+    $ZVM_MODE_INSERT)
+      color=42
+    ;;
+    $ZVM_MODE_VISUAL)
+      color=201
+    ;;
+    $ZVM_MODE_VISUAL_LINE)
+      color=201
+    ;;
+    $ZVM_MODE_REPLACE)
+      color=196
+    ;;
+  esac
+
+  PROMPT='%F{33}%~$vcs_info_msg_0_ %F{'"$color"'}%B%#%b%f '
+}
+
 # Aliases and Utilities
 
 . ~/.zsh_aliases
