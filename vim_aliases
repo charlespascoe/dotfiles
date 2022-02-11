@@ -8,6 +8,7 @@ function sess_path() {
     if [ -d .git ]; then
         branch_name=$(git symbolic-ref -q HEAD)
         branch_name=${branch_name##refs/heads/}
+        branch_name=${branch_name//\//_}
         session=.sessions/${branch_name:-Session}.vim
     fi
 

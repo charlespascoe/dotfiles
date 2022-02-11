@@ -6,8 +6,9 @@ alias ea='vim ~/.zsh_aliases && . ~/.zsh_aliases'
 alias doc=docker
 
 # Git
+alias cit=git
 alias ci='EDITOR="vim -c ShowDiff -c startinsert!" git ci'
-alias ga='git add -p'
+alias cs='git add -p'
 
 # Tmux
 alias dev='start-agent && tm dev'
@@ -30,7 +31,6 @@ alias eds='vim -c "au BufUnload <buffer> DictationReloadSubstitutions" ~/.vim-co
 
 # Utils
 alias c='clear'
-alias cit=git
 alias n=g
 alias hc='history -c'
 alias ls='/opt/homebrew/bin/gls -lh --color=always --group-directories-first'
@@ -40,3 +40,7 @@ alias py='python3'
 alias copy=pbcopy
 alias paste=pbpaste
 nd() { mkdir -p $1; cd $1; }
+
+re() {
+    e scp://$1/$2
+}
