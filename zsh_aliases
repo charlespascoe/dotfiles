@@ -6,7 +6,7 @@ alias ea='vim ~/.zsh_aliases && . ~/.zsh_aliases'
 alias doc=docker
 
 # Git
-alias cit=git
+alias x=git
 alias ci='EDITOR="vim -c ShowDiff -c startinsert!" git ci'
 alias cs='git add -p'
 
