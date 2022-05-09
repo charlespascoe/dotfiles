@@ -13,7 +13,6 @@ stty -ixon
 HISTFILE=~/.zsh_hist
 HISTSIZE=1000
 SAVEHIST=1000
-setopt SHARE_HISTORY
 setopt hist_ignore_space
 setopt histignoredups
 
@@ -48,15 +47,10 @@ zstyle ':vcs_info:git*' actionformats ' %F{220}%a|%b%B %u%c%m%F{220}%%b%f'
 zstyle ':vcs_info:git*+set-message:*' hooks git-stash
 zstyle ':vcs_info:*' enable git
 
-# Vi mode
+# Vi mode - clone https://github.com/jeffreytse/zsh-vi-mode into ~/.zsh-vi-mode
 
 function zvm_config() {
   ZVM_CURSOR_STYLE_ENABLED=false
-}
-
-function zvm_after_lazy_keybindings() {
-  zvm_bindkey vicmd 'l' vi-backward-word
-  zvm_bindkey vicmd 'L' vi-backward-blank-word
 }
 
 function zvm_after_select_vi_mode() {
@@ -82,6 +76,8 @@ function zvm_after_select_vi_mode() {
 
   PROMPT='%F{33}%~$vcs_info_msg_0_ %F{'"$color"'}%B%#%b%f '
 }
+
+source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 # Aliases and Utilities
 
