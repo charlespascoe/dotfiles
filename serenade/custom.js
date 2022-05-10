@@ -110,8 +110,27 @@ vim.command(
 
 vim.command(
   'next',
-  // Executes custom UltiSnips jump command
-  (api) => api.evaluateInPlugin('call feedkeys("\\<C-l>")'),
+  (api) => api.evaluateInPlugin('normal *'),
+);
+
+vim.command(
+  'previous',
+  (api) => api.evaluateInPlugin('normal #'),
+);
+
+vim.command(
+  'next match',
+  (api) => api.evaluateInPlugin('normal n'),
+);
+
+vim.command(
+  'previous match',
+  (api) => api.evaluateInPlugin('normal N'),
+);
+
+vim.command(
+  'opposite pair',
+  (api) => api.evaluateInPlugin('normal %'),
 );
 
 vim.command(
@@ -137,6 +156,28 @@ vim.command(
 );
 
 vim.command(
+  'mark <%mark%>',
+  (api, matched) => {
+    if (matched.mark.length !== 1) {
+      throw new Error('mark must be single character');
+    }
+
+    api.evaluateInPlugin(`normal m${matched.mark[0]}`);
+  },
+);
+
+vim.command(
+  'jump to <%mark%>',
+  (api, matched) => {
+    if (matched.mark.length !== 1) {
+      throw new Error('mark must be single character');
+    }
+
+    api.evaluateInPlugin(`normal \`${matched.mark[0]}`);
+  },
+);
+
+vim.command(
   'close file',
   // Note that this uses a plugin to change the other delete behaviour; see
   // https://github.com/moll/vim-bbye, or just change this to 'bdelete'
@@ -151,6 +192,28 @@ vim.command(
   {autoExecute: false},
 );
 
+vim.command('tmux right', async (api) => {
+  await api.pressKey('right', ['control', 'alt']);
+});
+
+vim.command('tmux left', async (api) => {
+  await api.pressKey('left', ['control', 'alt']);
+});
+
+// Global Commands //
+
+serenade.global().command('file start', async (api) => {
+  await api.runCommand('top of file');
+});
+
+serenade.global().command('file end', async (api) => {
+  await api.runCommand('end of file');
+});
+
+serenade.global().command('stop', async (api) => {
+  await api.pressKey('c', ['control']);
+});
+
 // Go Commands //
 
 const go = serenade.language('go');
@@ -162,6 +225,17 @@ go.command(
     api.evaluateInPlugin(`call feedkeys("${matches.name}")`);
   },
 );
+
+go.command('find references', (api) => {
+  api.evaluateInPlugin('GoReferrers');
+}, {chainable: 'firstOnly'});
+
+go.command('format', (api) => {
+  api.evaluateInPlugin('GoFmt');
+  api.evaluateInPlugin('w');
+});
+
+go.command('build', (api) => api.evaluateInPlugin('wa | GoBuild'));
 
 // JavaScript Commands //
 
