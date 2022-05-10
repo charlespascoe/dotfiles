@@ -29,6 +29,10 @@ alias drr='vim -c "cd ~/drafts/" -c "au BufUnload <buffer> ExportRTFToClipboard"
 ## Edit dictation substitutions
 alias eds='vim -c "au BufUnload <buffer> DictationReloadSubstitutions" ~/.vim-conf/dictation_substitutions'
 
+
+# Edit Serenade Custom Commands
+alias esc='vim /Users/charles/.serenade/scripts/custom.js'
+
 # Utils
 alias c='clear'
 alias n=g
