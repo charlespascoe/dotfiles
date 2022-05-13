@@ -156,6 +156,11 @@ vim.command(
 );
 
 vim.command(
+  'trim',
+  (api) => api.evaluateInPlugin('Trim'),
+);
+
+vim.command(
   'mark <%mark%>',
   (api, matched) => {
     if (matched.mark.length !== 1) {
@@ -214,6 +219,14 @@ serenade.global().command('stop', async (api) => {
   await api.pressKey('c', ['control']);
 });
 
+serenade.global().command('restart', async (api) => {
+  await api.pressKey('c', ['control']);
+  await api.delay(100);
+  await api.pressKey('up');
+  await api.delay(100);
+  await api.pressKey('enter');
+});
+
 // Go Commands //
 
 const go = serenade.language('go');
@@ -230,9 +243,12 @@ go.command('find references', (api) => {
   api.evaluateInPlugin('GoReferrers');
 }, {chainable: 'firstOnly'});
 
-go.command('format', (api) => {
-  api.evaluateInPlugin('GoFmt');
-  api.evaluateInPlugin('w');
+go.command('go to test file', (api) => {
+  api.evaluateInPlugin('GoAlternate!');
+});
+
+go.command('run tests', (api) => {
+  api.evaluateInPlugin('wa | GoTest');
 });
 
 go.command('build', (api) => api.evaluateInPlugin('wa | GoBuild'));
