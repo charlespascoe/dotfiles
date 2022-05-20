@@ -78,6 +78,22 @@ vim.command(
   (api) => api.evaluateInPlugin('exec "normal \\<C-w>\\<C-w>"'),
 );
 
+vim.command('first', async (api) => {
+  await api.runCommand('start of line');
+});
+
+vim.command('end', async (api) => {
+  await api.runCommand('end of line');
+});
+
+vim.command('line', async (api) => {
+  await api.runCommand('add newline');
+});
+
+vim.command('line above', async (api) => {
+  await api.runCommand('add newline above');
+});
+
 vim.command(
   'top',
   (api) => api.evaluateInPlugin('normal zt'),
@@ -172,7 +188,7 @@ vim.command(
 );
 
 vim.command(
-  'jump to <%mark%>',
+  'jump <%mark%>',
   (api, matched) => {
     if (matched.mark.length !== 1) {
       throw new Error('mark must be single character');
@@ -233,8 +249,9 @@ const go = serenade.language('go');
 
 go.command(
   'add method <%name%>',
-  (api, matches) => {
+  async (api, matches) => {
     api.evaluateInPlugin(`call feedkeys("\\<Esc>i\\<Enter>m ")`);
+    await api.delay(100);
     api.evaluateInPlugin(`call feedkeys("${matches.name}")`);
   },
 );
