@@ -199,6 +199,11 @@ vim.command(
 );
 
 vim.command(
+  'edit snippets',
+  (api) => api.evaluateInPlugin('UltiSnipsEdit'),
+);
+
+vim.command(
   'close file',
   // Note that this uses a plugin to change the other delete behaviour; see
   // https://github.com/moll/vim-bbye, or just change this to 'bdelete'
@@ -222,6 +227,8 @@ vim.command('tmux left', async (api) => {
 });
 
 // Global Commands //
+
+serenade.global().command('terminal', (api) => api.runCommand('focus alacritty'));
 
 serenade.global().command('file start', async (api) => {
   await api.runCommand('top of file');
@@ -282,7 +289,7 @@ javascript.command('preview', async (api) => {
 
 javascript.snippet(
   'add element <%identifier%>',
-  '<%identifier%>()(<%cursor%>)',
+  '<%identifier%>()(<%cursor%>),',
   { 'identifier': ['camel'] },
   'inline',
 );
