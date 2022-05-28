@@ -78,21 +78,25 @@ vim.command(
   (api) => api.evaluateInPlugin('exec "normal \\<C-w>\\<C-w>"'),
 );
 
-vim.command('first', async (api) => {
-  await api.runCommand('start of line');
-});
+vim.command(
+  'first',
+  (api) => api.runCommand('start of line'),
+);
 
-vim.command('end', async (api) => {
-  await api.runCommand('end of line');
-});
+vim.command(
+  'end',
+  (api) => api.runCommand('end of line'),
+);
 
-vim.command('line', async (api) => {
-  await api.runCommand('add newline');
-});
+vim.command(
+  'line',
+  (api) => api.runCommand('add newline'),
+);
 
-vim.command('line above', async (api) => {
-  await api.runCommand('add newline above');
-});
+vim.command(
+  'line above',
+  (api) => api.runCommand('add newline above'),
+);
 
 vim.command(
   'top',
@@ -147,6 +151,16 @@ vim.command(
 vim.command(
   'opposite pair',
   (api) => api.evaluateInPlugin('normal %'),
+);
+
+vim.command(
+  'increment',
+  (api) => api.evaluateInPlugin('exec "normal \\<C-a>"'),
+);
+
+vim.command(
+  'decrement',
+  (api) => api.evaluateInPlugin('exec "normal \\<C-x>"'),
 );
 
 vim.command(
@@ -218,29 +232,37 @@ vim.command(
   {autoExecute: false},
 );
 
-vim.command('tmux right', async (api) => {
-  await api.pressKey('right', ['control', 'alt']);
-});
+vim.command(
+  'tmux right',
+  (api) => api.pressKey('right', ['control', 'alt']),
+);
 
-vim.command('tmux left', async (api) => {
-  await api.pressKey('left', ['control', 'alt']);
-});
+vim.command(
+  'tmux left',
+  (api) => api.pressKey('left', ['control', 'alt']),
+);
 
 // Global Commands //
 
-serenade.global().command('terminal', (api) => api.runCommand('focus alacritty'));
+serenade.global().command(
+  'terminal',
+  (api) => api.runCommand('focus alacritty')
+);
 
-serenade.global().command('file start', async (api) => {
-  await api.runCommand('top of file');
-});
+serenade.global().command(
+  'file start',
+  (api) => api.runCommand('top of file'),
+);
 
-serenade.global().command('file end', async (api) => {
-  await api.runCommand('end of file');
-});
+serenade.global().command(
+  'file end',
+  (api) => api.runCommand('end of file'),
+);
 
-serenade.global().command('stop', async (api) => {
-  await api.pressKey('c', ['control']);
-});
+serenade.global().command(
+  'stop',
+  (api) => api.pressKey('c', ['control']),
+);
 
 serenade.global().command('restart', async (api) => {
   await api.pressKey('c', ['control']);
