@@ -11,7 +11,14 @@ alias ci='EDITOR="vim -c ShowDiff -c startinsert!" git ci'
 alias cs='git add -p'
 
 # Tmux
-alias dev='start-agent && tm dev'
+alias start-ssh-agent='killall -q ssh-agent; eval `ssh-agent` && ssh-add'
+alias stop-ssh-agent='killall ssh-agent'
+
+alias start-gpg-agent='killall -q gpg-agent; eval `gpg-agent --daemon --options ~/.dotfiles/gpg-agent.conf`'
+alias stop-gpg-agent='killall gpg-agent'
+
+alias dev='start-ssh-agent && start-gpg-agent && tm dev'
+
 alias tmls='tmux ls'
 tm() { tmux -u attach -t $1 || tmux -u new -s $1; }
 alias tsb='tmux show-buffer'
@@ -38,8 +45,6 @@ alias c='clear'
 alias n=g
 alias hc='history -c'
 alias ls='/opt/homebrew/bin/gls -lh --color=always --group-directories-first'
-alias start-agent='eval `ssh-agent` && ssh-add'
-alias stop-agent='killall ssh-agent'
 alias py='python3'
 alias copy=pbcopy
 alias paste=pbpaste
