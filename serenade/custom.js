@@ -213,6 +213,15 @@ vim.command(
 );
 
 vim.command(
+  'dictate',
+  async (api) => {
+    await api.runCommand('pause');
+    await api.evaluateInPlugin('startinsert');
+    await api.evaluateInPlugin('call dictate#Start()');
+  },
+);
+
+vim.command(
   'edit snippets',
   (api) => api.evaluateInPlugin('UltiSnipsEdit'),
 );
