@@ -7,6 +7,7 @@ alias doc=docker
 
 # Git
 alias x=git
+alias xut='x u && x u --tags'
 alias ci='EDITOR="vim -c ShowDiff -c startinsert!" git ci'
 alias cs='git add -p'
 
@@ -30,8 +31,12 @@ compdef _make m
 # Vim
 source ~/.dotfiles/vim_aliases
 
-alias dr='vim -c "cd ~/drafts/" -c "au BufUnload <buffer> ExportToClipboard" -c "startinsert" ~/drafts/`date +"%F_%H:%m:%S"`.bn'
 alias drr='vim -c "cd ~/drafts/" -c "au BufUnload <buffer> ExportRTFToClipboard" -c "startinsert" ~/drafts/`date +"%F_%H:%m:%S"`.bn'
+
+dr() {
+    ext=${1:-bn};
+    vim -c "cd ~/drafts/" -c "au BufUnload <buffer> ExportToClipboard" -c "startinsert" ~/drafts/`date +"%F_%H:%m:%S"`.$ext
+}
 
 ## Edit dictation substitutions
 alias eds='vim -c "au BufUnload <buffer> DictationReloadSubstitutions" ~/.vim-conf/dictation_substitutions'
