@@ -51,6 +51,7 @@ alias n=g
 alias hc='history -c'
 alias ls='/opt/homebrew/bin/gls -lh --color=always --group-directories-first'
 alias py='python3'
+alias pr='ptpython'
 alias copy=pbcopy
 alias paste=pbpaste
 alias sha256='openssl dgst -sha256'

@@ -84,3 +84,5 @@ source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
 . ~/.zsh_aliases
 
 . ~/.dotfiles/bashmarks.sh
+
+export PTPYTHON_CONFIG_HOME=~/.config/ptpython/
