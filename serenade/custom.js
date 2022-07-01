@@ -242,6 +242,12 @@ vim.command(
 );
 
 vim.command(
+  'delete paragraph',
+  (api) => api.evaluateInPlugin('normal dap'),
+  {autoExecute: false},
+);
+
+vim.command(
   'tmux right',
   (api) => api.pressKey('right', ['control', 'alt']),
 );
