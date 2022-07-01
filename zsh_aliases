@@ -31,11 +31,11 @@ compdef _make m
 # Vim
 source ~/.dotfiles/vim_aliases
 
-alias drr='vim -c "cd ~/drafts/" -c "au BufUnload <buffer> ExportRTFToClipboard" -c "startinsert" ~/drafts/`date +"%F_%H:%m:%S"`.bn'
+alias drr='vim -c "cd ~/drafts/" -c "au BufUnload <buffer> ExportRTFToClipboard" -c "startinsert" ~/drafts/`date +"%F_%H:%M:%S"`.bn'
 
 dr() {
     ext=${1:-bn};
-    vim -c "cd ~/drafts/" -c "au BufUnload <buffer> ExportToClipboard" -c "startinsert" ~/drafts/`date +"%F_%H:%m:%S"`.$ext
+    vim -c "cd ~/drafts/" -c "au BufUnload <buffer> ExportToClipboard" -c "startinsert" ~/drafts/`date +"%F_%H:%M:%S"`.$ext
 }
 
 ## Edit dictation substitutions
