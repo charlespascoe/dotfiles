@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 alias e='vim'
 
@@ -28,10 +28,16 @@ function es() {
         touch .sessions/_active
     fi
 
+    local cmd=(vim)
+
+    if [ -d .git ]; then
+        cmd+=(-i .viminfo)
+    fi
+
     if [ -f "$session" ]; then
-        vim -S "$session" $@
+        $cmd -S "$session" $@
     else
-        vim -c "Obsession $session" $@
+        $cmd -c "Obsession $session" $@
     fi
 
     if [ -d .sessions ]; then
@@ -46,6 +52,7 @@ function res() {
     fi
 
     rm -f "$(sess_path)"
+    # Don't delete the info file - it's useful for history and marks etc.
 }
 
 function fes() {
