@@ -61,3 +61,7 @@ nd() { mkdir -p $1; cd $1; }
 re() {
     e scp://$1/$2
 }
+
+gs() {
+    vim -c 'let g:go_template_autocreate = 0' -c "e ~/gotemp/`date +'%F_%H:%M:%S'`.go" -c 'au BufWritePost *.go call RunCode()' -c 'startinsert | call feedkeys("gotempfile\<C-l>")'
+}
