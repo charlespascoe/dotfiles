@@ -56,9 +56,10 @@ alias fj='python3 -m json.tool'
 alias copy=pbcopy
 alias paste=pbpaste
 alias pbapnl='echo "`paste`" | copy'
-alias epb='paste | vipe | copy'
 alias sha256='openssl dgst -sha256'
 alias td='nd ~/temp/`date +"%Y-%m-%d"`'
+alias uz=unzip
+
 nd() { mkdir -p $1; cd $1; }
 
 re() {
@@ -67,4 +68,18 @@ re() {
 
 gs() {
     vim -c 'let g:go_template_autocreate = 0' -c "e ~/gotemp/`date +'%F_%H:%M:%S'`.go" -c 'au BufWritePost *.go call RunCode()' -c 'startinsert | call feedkeys("gotempfile\<C-l>")'
+}
+
+epb() {
+    if [ -z $1 ]; then
+        pbpaste | vipe | pbcopy
+    else
+        pbpaste | vipe --suffix "$1"  | pbcopy
+    fi
+}
+
+demo() {
+    port="${1:-8000}"
+    echo "Running demo for port $port"
+    ssh -NR 12345:127.0.0.1:$port vps
 }
