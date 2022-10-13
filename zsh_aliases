@@ -31,11 +31,11 @@ compdef _make m
 # Vim
 source ~/.dotfiles/vim_aliases
 
-alias drr='vim -c "cd ~/drafts/" -c "au BufUnload <buffer> ExportRTFToClipboard" -c "startinsert" ~/drafts/`date +"%F_%H:%M:%S"`.bn'
+alias drr='vim -c "cd ~/drafts/" -c "au BufUnload <buffer> Export rtf" -c "startinsert" ~/drafts/`date +"%F_%H:%M:%S"`.bn'
 
 dr() {
     ext=${1:-bn};
-    vim -c "cd ~/drafts/" -c "au BufUnload <buffer> ExportToClipboard" -c "startinsert" ~/drafts/`date +"%F_%H:%M:%S"`.$ext
+    vim -c "cd ~/drafts/" -c "au BufUnload <buffer> exec &filetype == 'bulletnotes' ? 'Export' : '%yank +'" -c "startinsert" ~/drafts/`date +"%F_%H:%M:%S"`.$ext
 }
 
 ## Edit dictation substitutions
@@ -52,8 +52,11 @@ alias hc='history -c'
 alias ls='/opt/homebrew/bin/gls -lh --color=always --group-directories-first'
 alias py='python3'
 alias pr='ptpython'
+alias fj='python3 -m json.tool'
 alias copy=pbcopy
 alias paste=pbpaste
+alias pbapnl='echo "`paste`" | copy'
+alias epb='paste | vipe | copy'
 alias sha256='openssl dgst -sha256'
 alias td='nd ~/temp/`date +"%Y-%m-%d"`'
 nd() { mkdir -p $1; cd $1; }
