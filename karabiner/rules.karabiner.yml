@@ -1,0 +1,61 @@
+rules:
+  - desc: 'Change Shift+Delete to Delete'
+    from:
+      key_code: delete_or_backspace
+      modifiers: [shift]
+    to:
+      key_code: delete_or_backspace
+
+  - desc: 'Map Ctrl-Backspace to Ctrl-W in Alacritty'
+    from:
+      key_code: delete_or_backspace
+      modifiers: [control]
+    to:
+      key_code: w
+      modifiers: [left_control]
+    conditions:
+      frontmost_application_if: ['^io\.alacritty$']
+
+  - desc: 'Map Command-D to Ctrl-D for dictation in Vim'
+    from:
+      key_code: d
+      modifiers: [command]
+    to:
+      key_code: d
+      modifiers: [left_control]
+    conditions:
+      frontmost_application_if: ['^io\.alacritty$']
+
+  # - desc: 'Map Command-` to Command-Tab'
+  #   from:
+  #     key_code: grave_accent_and_tilde
+  #     modifiers: [command]
+  #   to:
+  #     key_code: tab
+  #     modifiers: [left_command]
+
+  - desc: 'Map Command-E to Escape in Alacritty'
+    from:
+      key_code: e
+      modifiers: [command]
+    to:
+      key_code: escape
+    conditions:
+      frontmost_application_if: ['^io\.alacritty$']
+
+  - desc: 'Map Alt-I to Ctrl-y in Terminal (for snippets)'
+    from:
+      key_code: i
+      modifiers: [option]
+    to:
+      key_code: y
+      modifiers: [left_control]
+    conditions:
+      frontmost_application_if: ['^io\.alacritty$']
+
+  - desc: 'Map F19 to Alt-Space for Serenade'
+    from:
+      key_code: f19
+    to:
+      key_code: spacebar
+      modifiers: [option]
