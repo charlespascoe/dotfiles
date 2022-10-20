@@ -9,6 +9,10 @@ PROMPT='%F{33}%~$vcs_info_msg_0_ %F{36}%#%f '
 # Pass through Ctrl-S
 stty -ixon
 
+# Key mappings
+bindkey "^[[4~" end-of-line
+bindkey -v "^[[4~" end-of-line
+
 # History
 HISTFILE=~/.zsh_hist
 HISTSIZE=1000
