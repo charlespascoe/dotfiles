@@ -2,6 +2,10 @@
 
 alias e='vim'
 
+re() {
+    e scp://$1/$2
+}
+
 function sess_path() {
     session=Session.vim
 

@@ -26,7 +26,6 @@ alias tsb='tmux show-buffer'
 
 # Make
 alias m=make
-compdef _make m
 
 # Vim
 source ~/.dotfiles/vim_aliases
@@ -45,6 +44,19 @@ alias eds='vim -c "au BufUnload <buffer> DictationReloadSubstitutions" ~/.vim-co
 # Edit Serenade Custom Commands
 alias esc='vim /Users/charles/.serenade/scripts/custom.js'
 
+# Pasteboard
+alias copy=pbcopy
+alias paste=pbpaste
+alias pbapnl='echo "`paste`" | copy'
+
+epb() {
+    if [ -z "$1" ]; then
+        pbpaste | vipe | pbcopy
+    else
+        pbpaste | vipe --suffix "$1"  | pbcopy
+    fi
+}
+
 # Utils
 alias c='clear'
 alias n=g
@@ -53,33 +65,28 @@ alias ls='/opt/homebrew/bin/gls -lh --color=always --group-directories-first'
 alias py='python3'
 alias pr='ptpython'
 alias fj='python3 -m json.tool'
-alias copy=pbcopy
-alias paste=pbpaste
-alias pbapnl='echo "`paste`" | copy'
 alias sha256='openssl dgst -sha256'
 alias td='nd ~/temp/`date +"%Y-%m-%d"`'
 alias uz=unzip
 
 nd() { mkdir -p $1; cd $1; }
 
-re() {
-    e scp://$1/$2
-}
-
 gs() {
     vim -c 'let g:go_template_autocreate = 0' -c "e ~/gotemp/`date +'%F_%H:%M:%S'`.go" -c 'au BufWritePost *.go call RunCode()' -c 'startinsert | call feedkeys("gotempfile\<C-l>")'
-}
-
-epb() {
-    if [ -z $1 ]; then
-        pbpaste | vipe | pbcopy
-    else
-        pbpaste | vipe --suffix "$1"  | pbcopy
-    fi
 }
 
 demo() {
     port="${1:-8000}"
     echo "Running demo for port $port"
     ssh -NR 12345:127.0.0.1:$port vps
+}
+
+# Work-specific
+
+excel() {
+    file_path="`realpath $1`"
+    osascript -e 'tell application "Microsoft Excel"
+        activate
+        open "'"$file_path"'"
+    end tell' > /dev/null
 }
