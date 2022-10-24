@@ -14,10 +14,32 @@ rules:
     to:
       key_code: delete_or_backspace
 
+  # TODO: Remove this after updating keyboard layouts
   - desc: 'Map Ctrl-Backspace to Ctrl-W in Alacritty'
     from:
       key_code: delete_or_backspace
       modifiers: [control]
+    to:
+      key_code: w
+      modifiers: [left_control]
+    conditions:
+      frontmost_application_if: ['^io\.alacritty$']
+
+  # TODO: Remove this after updating keyboard layouts
+  - desc: 'Map Ctrl-Backspace to Option-Backspace'
+    from:
+      key_code: delete_or_backspace
+      modifiers: [control]
+    to:
+      key_code: delete_or_backspace
+      modifiers: [option]
+    conditions:
+      frontmost_application_unless: ['^io\.alacritty$']
+
+  - desc: 'Map Option-Backspace to Ctrl-W in Alacritty'
+    from:
+      key_code: delete_or_backspace
+      modifiers: [option]
     to:
       key_code: w
       modifiers: [left_control]
@@ -87,3 +109,13 @@ rules:
     to:
       key_code: spacebar
       modifiers: [option]
+
+  - desc: 'Map End to Ctrl-E'
+    from:
+      key_code: end
+      modifiers: []
+    to:
+      key_code: e
+      modifiers: [control]
+    conditions:
+      frontmost_application_unless: ['^io\.alacritty$']
