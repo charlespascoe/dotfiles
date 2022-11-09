@@ -8,6 +8,7 @@
     di = diff
     ci = commit
     co = checkout
+    cp = cherry-pick
     br = branch
     ds = diff --cached
     dn = diff --no-index

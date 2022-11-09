@@ -14,6 +14,25 @@ rules:
     to:
       key_code: delete_or_backspace
 
+  - desc: 'Change Ctrl-. to Ctrl-z in Alacritty'
+    from:
+      key_code: period
+      modifiers: [control]
+    to:
+      key_code: z
+      modifiers: [control]
+    conditions:
+      frontmost_application_if: ['^io\.alacritty$']
+
+  - desc: 'Change Ctrl-z to No-op in Alacritty'
+    from:
+      key_code: z
+      modifiers: [control]
+    to:
+      key_code: vk_none
+    conditions:
+      frontmost_application_if: ['^io\.alacritty$']
+
   # TODO: Remove this after updating keyboard layouts
   - desc: 'Map Ctrl-Backspace to Ctrl-W in Alacritty'
     from:
@@ -63,8 +82,6 @@ rules:
     to:
       key_code: keypad_plus
       modifiers: [command]
-    conditions:
-      frontmost_application_if: ['^io\.alacritty$']
 
   - desc: 'Map Command-Down to Command-Minus'
     from:
@@ -73,8 +90,6 @@ rules:
     to:
       key_code: keypad_hyphen
       modifiers: [command]
-    conditions:
-      frontmost_application_if: ['^io\.alacritty$']
 
   # - desc: 'Map Command-` to Command-Tab'
   #   from:
@@ -119,3 +134,10 @@ rules:
       modifiers: [control]
     conditions:
       frontmost_application_unless: ['^io\.alacritty$']
+
+  - desc: 'Make Escape clear Capslock'
+    from:
+      key_code: escape
+      modifiers: [caps_lock]
+    to:
+      key_code: caps_lock
