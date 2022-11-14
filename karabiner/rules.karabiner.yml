@@ -133,7 +133,7 @@ rules:
       key_code: e
       modifiers: [control]
     conditions:
-      frontmost_application_unless: ['^io\.alacritty$']
+      frontmost_application_unless: ['^io\.alacritty$', '^com\.microsoft\.Outlook$']
 
   - desc: 'Make Escape clear Capslock'
     from:
