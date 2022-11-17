@@ -32,19 +32,25 @@ def convert_from(fr):
 
 
 def convert_conditions(conditions):
-    # TODO: Support other types
-    return [{'type': key, 'bundle_identifiers': bunids} for key, bunids in conditions.items()]
+    if isinstance(conditions, list):
+        return conditions
+    else:
+        # TODO: Support other types
+        return [{'type': key, 'bundle_identifiers': bunids} for key, bunids in conditions.items()]
 
 
 def convert_rule(rule):
     m = {
         'type': 'basic',
         'from': convert_from(rule['from']),
-        'to': rule['to'],
     }
 
     if 'conditions' in rule:
         m['conditions'] = convert_conditions(rule['conditions'])
+
+    for key, val in rule.items():
+        if (key == 'to' or key.startswith('to_')) and key not in m:
+            m[key] = val
 
     return {
         'description': rule['desc'],

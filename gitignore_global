@@ -4,3 +4,6 @@ Session.vim
 tags
 .sessions/
 .viminfo
+*.gz
+*.tgz
+*.zip
