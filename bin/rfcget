@@ -1,0 +1,7 @@
+#!/bin/zsh
+
+if [[ ! -f ~/rfcs/rfc$1.txt ]]; then
+    wget -q -O ~/rfcs/rfc$1.txt https://www.ietf.org/rfc/rfc$1.txt
+fi
+
+echo ~/rfcs/rfc$1.txt
