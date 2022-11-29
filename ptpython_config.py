@@ -115,8 +115,8 @@ def configure(repl):
 
     # repl.color_depth = "DEPTH_1_BIT"  # Monochrome.
     # repl.color_depth = "DEPTH_4_BIT"  # ANSI colors only.
-    repl.color_depth = "DEPTH_8_BIT"  # The default, 256 colors.
-    # repl.color_depth = "DEPTH_24_BIT"  # True color.
+    # repl.color_depth = "DEPTH_8_BIT"  # The default, 256 colors.
+    repl.color_depth = "DEPTH_24_BIT"  # True color.
 
     # Min/max brightness
     repl.min_brightness = 0.0  # Increase for dark terminal backgrounds.
@@ -132,7 +132,9 @@ def configure(repl):
     repl.vi_keep_last_used_mode = False
 
     # Install custom colorscheme named 'my-colorscheme' and use it.
-    repl.install_ui_colorscheme("custom_ui_colorscheme", Style.from_dict(custom_ui_colorscheme))
+    repl.install_ui_colorscheme(
+        "custom_ui_colorscheme", Style.from_dict(custom_ui_colorscheme)
+    )
     repl.use_ui_colorscheme("custom_ui_colorscheme")
 
     # Add custom key binding for PDB.
@@ -191,12 +193,29 @@ def configure(repl):
 # Custom colorscheme for the UI. See `ptpython/layout.py` and
 # `ptpython/style.py` for all possible tokens.
 custom_ui_colorscheme = {
-    # "in": "bold #08a332",
-    "in": "bold #00d787",
-    # "out": "bold #d44e06",
-    # "out": "bold #db8402",
-    "out": "bold #ffd700",
-
+    "pygments.comment": "fg:#A381FF bg:#3E3853 italic",
+    "pygments.keyword": "#E873D2",
+    "pygments.keyword.type": "#6FFF88",
+    "pygments.keyword.constant": "#FF6C6C",
+    "pygments.operator": "#FFAF6F",
+    "pygments.operator.word": "#FFAF6F",
+    "pygments.literal.number": "#FF6C6C",
+    "pygments.literal.string": "#FF6C6C",
+    "pygments.name.decorator": "",
+    "pygments.name.class": "#6FFF88",
+    "pygments.name.function": "#FFF180",
+    "pygments.name.builtin": "#9087FD",
+    "pygments.name.attribute": "",
+    "pygments.name.constant": "#FF6C6C",
+    "pygments.name.entity": "",
+    "pygments.name.exception": "",
+    "pygments.name.label": "",
+    "pygments.name.namespace": "",
+    "pygments.name.tag": "",
+    "pygments.name.variable": "",
+    # Prompt
+    "in": "bold #50fa7b",
+    "out": "bold #ff5555",
     # Completions.
     "completion.builtin": "",
     "completion.param": "#006666 italic",
