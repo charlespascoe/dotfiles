@@ -4,7 +4,7 @@ export EDITOR=vim
 export PATH="$PATH:$HOME/.dotfiles/bin"
 
 # Prompt
-PROMPT='%F{blue}%~$vcs_info_msg_0_ %F{cyan}%#%f '
+PROMPT='%F{5}%~$vcs_info_msg_0_ %F{#8BE9FD}%#%f '
 
 # Pass through Ctrl-S
 stty -ixon
@@ -59,7 +59,7 @@ function zvm_config() {
 }
 
 function zvm_after_select_vi_mode() {
-  color='cyan'
+  color='#8BE9FD'
 
   case $ZVM_MODE in
 
@@ -68,7 +68,7 @@ function zvm_after_select_vi_mode() {
     ;;
 
     $ZVM_MODE_INSERT)
-      color='cyan'
+      color='#8BE9FD'
     ;;
 
     $ZVM_MODE_VISUAL)
@@ -97,3 +97,9 @@ source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
 . ~/.dotfiles/bashmarks.sh
 
 export PTPYTHON_CONFIG_HOME=~/.config/ptpython/
+
+# Dynamic Bashmarks
+
+# The patch version of Vim changes in the path, so this ensures 'n vim' goes to
+# the right place (at least for vim 9.0)
+export DIR_vim="$(dirname $(dirname $(readlink -f `which vim`)))/share/vim/vim90"

@@ -22,7 +22,7 @@ rules:
       key_code: z
       modifiers: [control]
     conditions:
-      frontmost_application_if: ['^io\.alacritty$']
+      frontmost_application_if: ['^org\.alacritty$']
 
   - desc: 'Change Ctrl-z to No-op in Alacritty'
     from:
@@ -31,7 +31,7 @@ rules:
     to:
       key_code: vk_none
     conditions:
-      frontmost_application_if: ['^io\.alacritty$']
+      frontmost_application_if: ['^org\.alacritty$']
 
   # TODO: Remove this after updating keyboard layouts
   - desc: 'Map Ctrl-Backspace to Ctrl-W in Alacritty'
@@ -42,7 +42,7 @@ rules:
       key_code: w
       modifiers: [left_control]
     conditions:
-      frontmost_application_if: ['^io\.alacritty$']
+      frontmost_application_if: ['^org\.alacritty$']
 
   # TODO: Remove this after updating keyboard layouts
   - desc: 'Map Ctrl-Backspace to Option-Backspace'
@@ -53,7 +53,7 @@ rules:
       key_code: delete_or_backspace
       modifiers: [option]
     conditions:
-      frontmost_application_unless: ['^io\.alacritty$']
+      frontmost_application_unless: ['^org\.alacritty$']
 
   - desc: 'Map Option-Backspace to Ctrl-W in Alacritty'
     from:
@@ -63,7 +63,7 @@ rules:
       key_code: w
       modifiers: [left_control]
     conditions:
-      frontmost_application_if: ['^io\.alacritty$']
+      frontmost_application_if: ['^org\.alacritty$']
 
   - desc: 'Map Command-D to Ctrl-D for dictation in Vim'
     from:
@@ -73,7 +73,7 @@ rules:
       key_code: d
       modifiers: [left_control]
     conditions:
-      frontmost_application_if: ['^io\.alacritty$']
+      frontmost_application_if: ['^org\.alacritty$']
 
   - desc: 'Map Command-Up to Command-Plus'
     from:
@@ -106,7 +106,7 @@ rules:
     to:
       key_code: escape
     conditions:
-      frontmost_application_if: ['^io\.alacritty$']
+      frontmost_application_if: ['^org\.alacritty$']
 
   - desc: 'Map Alt-I to Ctrl-y in Terminal (for snippets)'
     from:
@@ -116,7 +116,7 @@ rules:
       key_code: y
       modifiers: [left_control]
     conditions:
-      frontmost_application_if: ['^io\.alacritty$']
+      frontmost_application_if: ['^org\.alacritty$']
 
   - desc: 'Map F19 to Alt-Space for Serenade'
     from:
@@ -133,4 +133,4 @@ rules:
       key_code: e
       modifiers: [control]
     conditions:
-      frontmost_application_unless: ['^io\.alacritty$', '^com\.microsoft\.Outlook$']
+      frontmost_application_unless: ['^org\.alacritty$', '^com\.microsoft\.Outlook$']

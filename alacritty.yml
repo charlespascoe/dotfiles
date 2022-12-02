@@ -1,5 +1,11 @@
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
 
+# Instead of `font.use_thin_strokes: true`, run the following in the terminal:
+#   $ defaults write org.alacritty AppleFontSmoothing -int 0
+# To restore:
+#   $ defaults delete org.alacritty AppleFontSmoothing
+# You'll need to restart Alacritty each time.
+
 env:
   TERM: xterm-256color
 
@@ -22,8 +28,6 @@ font:
     style: Italic
 
   size: 12.0
-
-  use_thin_strokes: true
 
 live_config_reload: true
 
