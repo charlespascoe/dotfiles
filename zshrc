@@ -1,5 +1,8 @@
 export EDITOR=vim
 
+export MANPAGER="vim +MANPAGER --not-a-term -"
+export MANWIDTH=80
+
 # PATH tweaks
 export PATH="$PATH:$HOME/.dotfiles/bin"
 
