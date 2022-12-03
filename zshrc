@@ -6,6 +6,11 @@ export MANWIDTH=80
 # PATH tweaks
 export PATH="$PATH:$HOME/.dotfiles/bin"
 
+function precmd() {
+  # Set the title to the current working directory, shortened Vim-style
+  printf "\e]0;`print -rD "$PWD" | sed -E 's:(\.?[^/])[^/]*/:\1/:g'`\a"
+}
+
 # Prompt
 PROMPT='%F{5}%~$vcs_info_msg_0_ %F{#8BE9FD}%#%f '
 
