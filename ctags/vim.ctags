@@ -1,0 +1,3 @@
+--kinddef-vim=s,syndef,syntax definition
+
+--regex-vim=/^syntax[ \t]+(keyword|region|match|cluster)[ \t]+(\w+)/\2/s/

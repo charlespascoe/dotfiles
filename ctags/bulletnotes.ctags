@@ -1,0 +1,12 @@
+# https://manpages.ubuntu.com/manpages/focal/en/man7/ctags-universal-optlib.7.html
+
+--langdef=bn
+--map-bn=+.bn
+
+--kinddef-bn=t,title,titles
+--kinddef-bn=s,section,sections
+--kinddef-bn=a,anchor,anchors
+
+--regex-bn=/^## +(.*) +##$/\1/t/
+--regex-bn=/^:: +(.*) +::$/\1/s/
+--regex-bn=/(^|[^[])(:[a-zA-Z0-9]+:)([^\]]|$)/\2/a/
