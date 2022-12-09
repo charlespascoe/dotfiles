@@ -18,10 +18,25 @@ alias stop-ssh-agent='killall ssh-agent'
 alias start-gpg-agent='killall -q gpg-agent; eval `gpg-agent --daemon --options ~/.dotfiles/gpg-agent.conf`'
 alias stop-gpg-agent='killall gpg-agent'
 
-alias dev='start-ssh-agent && start-gpg-agent && tm dev'
+alias code='start-ssh-agent && start-gpg-agent && tm code'
 
 alias tmls='tmux ls'
-tm() { tmux -u attach -t $1 || tmux -u new -s $1; }
+tm() {
+    if [ -n "$TMUX" ]; then
+        tmux switch -t $1 || tmux -u new -s $1
+    else
+        tmux -u attach -t $1 || tmux -u new -s $1
+    fi
+}
+
+_tm() {
+    local -a sessions
+    # sessions=(${${(f)"$(command tmux 2> /dev/null list-sessions)"}/:[ $'\t']##/:})
+    sessions=(${(f)"$(command tmux 2> /dev/null list-sessions)"})
+    _describe -t sessions 'sessions' sessions "$@"
+}
+compdef _tm tm
+
 alias tsb='tmux show-buffer'
 
 # Make
@@ -30,11 +45,11 @@ alias m=make
 # Vim
 source ~/.dotfiles/vim_aliases
 
-alias drr='vim -c "cd ~/drafts/" -c "au BufUnload <buffer> Export rtf" -c "startinsert" ~/drafts/`date +"%F_%H:%M:%S"`.bn'
+alias drr='vim -c "cd ~/drafts/" -c "au BufUnload <buffer> Export rtf" -c "startinsert" -c "set titlestring=draft" ~/drafts/`date +"%F_%H:%M:%S"`.bn'
 
 dr() {
     ext=${1:-bn};
-    vim -c "cd ~/drafts/" -c "au BufUnload <buffer> exec &filetype == 'bulletnotes' ? 'Export' : '%yank +'" -c "startinsert" ~/drafts/`date +"%F_%H:%M:%S"`.$ext
+    vim -c "cd ~/drafts/" -c "au BufUnload <buffer> exec &filetype == 'bulletnotes' ? 'Export' : '%yank +'" -c "startinsert" -c "set titlestring=draft" ~/drafts/`date +"%F_%H:%M:%S"`.$ext
 }
 
 ## Edit dictation substitutions
@@ -61,7 +76,7 @@ epb() {
 alias c='clear'
 alias n=g
 alias hc='history -c'
-alias ls='/opt/homebrew/bin/gls -lh --color=always --group-directories-first'
+alias ls='/opt/homebrew/bin/gls -lh --color=auto --group-directories-first'
 alias py='python3'
 alias pr='ptpython'
 alias fj='python3 -m json.tool'
