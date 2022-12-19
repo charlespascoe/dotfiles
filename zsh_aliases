@@ -23,9 +23,13 @@ alias code='start-ssh-agent && start-gpg-agent && tm code'
 alias tmls='tmux ls'
 tm() {
     if [ -n "$TMUX" ]; then
-        tmux switch -t $1 || tmux -u new -s $1
+        if ! tmux has-session -t $1; then
+            tmux -u new -d -s $1
+        fi
+
+        tmux -u switch -t $1
     else
-        tmux -u attach -t $1 || tmux -u new -s $1
+        tmux -u new -A -s $1
     fi
 }
 
@@ -49,7 +53,7 @@ alias drr='vim -c "cd ~/drafts/" -c "au BufUnload <buffer> Export rtf" -c "start
 
 dr() {
     ext=${1:-bn};
-    vim -c "cd ~/drafts/" -c "au BufUnload <buffer> exec &filetype == 'bulletnotes' ? 'Export' : '%yank +'" -c "startinsert" -c "set titlestring=draft" ~/drafts/`date +"%F_%H:%M:%S"`.$ext
+    vim -c "cd ~/drafts/" -c "au BufUnload <buffer> exec &filetype =~ 'bulletnotes\\|markdown' ? 'Export' : '%yank +'" -c "startinsert" -c "set titlestring=draft" ~/drafts/`date +"%F_%H:%M:%S"`.$ext
 }
 
 ## Edit dictation substitutions

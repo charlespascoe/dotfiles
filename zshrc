@@ -4,7 +4,7 @@ export MANPAGER="vim +MANPAGER --not-a-term -"
 export MANWIDTH=80
 
 # PATH tweaks
-export PATH="$PATH:$HOME/.dotfiles/bin"
+export PATH="$HOME/.dotfiles/bin:$PATH"
 
 function precmd() {
   # Set the title to the current working directory, shortened Vim-style
