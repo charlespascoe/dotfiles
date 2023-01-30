@@ -117,6 +117,7 @@ EXEC 00;32
 .dmg 00;31
 
 # Documents
+.adoc 00;96
 .pdf 00;96
 .md 00;96
 .bn 00;96

@@ -58,7 +58,3 @@ function res() {
     rm -f "$(sess_path)"
     # Don't delete the info file - it's useful for history and marks etc.
 }
-
-function fes() {
-    res && es $@
-}

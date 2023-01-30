@@ -1,6 +1,6 @@
 export EDITOR=vim
 
-export MANPAGER="vim +MANPAGER --not-a-term -"
+export MANPAGER="MAN=1 vim +MANPAGER --not-a-term -"
 export MANWIDTH=80
 
 # PATH tweaks
@@ -23,8 +23,8 @@ bindkey -v "^[[4~" end-of-line
 
 # History
 HISTFILE=~/.zsh_hist
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 setopt hist_ignore_space
 setopt histignoredups
 
