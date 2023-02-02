@@ -1,6 +1,12 @@
 #!/bin/zsh
 
-alias e='vim'
+e() {
+    if [ -z "$@" ]; then
+        vim `fzf`
+    else
+        vim "$@"
+    fi
+}
 
 re() {
     e scp://$1/$2

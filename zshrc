@@ -98,6 +98,16 @@ function zvm_after_select_vi_mode() {
 
 source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
+# fzf config
+
+export FZF_DEFAULT_COMMAND="fd --type f --ignore-file $HOME/.gitignore_global --strip-cwd-prefix"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+_fzf_compgen_path() {
+  fd --type f --ignore-file "$HOME/.gitignore_global" --strip-cwd-prefix
+}
+
+
 # Aliases and Utilities
 
 . ~/.zsh_aliases

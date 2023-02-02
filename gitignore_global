@@ -8,3 +8,5 @@ tags
 *.tgz
 *.zip
 *.bak
+__pycache__/
+node_modules/
