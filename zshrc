@@ -100,13 +100,27 @@ source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 # fzf config
 
-export FZF_DEFAULT_COMMAND="fd --type f --ignore-file $HOME/.gitignore_global --strip-cwd-prefix"
+# export FZF_DEFAULT_COMMAND="fd --type f --ignore-file $HOME/.gitignore_global --strip-cwd-prefix"
+# NOTE the tab between %a and %N (needed for 'cut')
+export FZF_DEFAULT_COMMAND="fd --type f --ignore-file $HOME/.gitignore_global --strip-cwd-prefix | xargs stat -f '%a	%N' | sort -nr | cut -f 2"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# Prevent sorting so that more recently accessed items appear first when
+# filtering
+export FZF_DEFAULT_OPTS='--no-sort'
 
 _fzf_compgen_path() {
-  fd --type f --ignore-file "$HOME/.gitignore_global" --strip-cwd-prefix
+  # fd --type f --ignore-file "$HOME/.gitignore_global" --strip-cwd-prefix
+  # NOTE the tab between %a and %N (needed for 'cut')
+  fd --type f --ignore-file "$HOME/.gitignore_global" --strip-cwd-prefix | xargs stat -f '%a	%N' | sort -nr | cut -f 2
 }
 
+autoload -U add-zsh-hook
+
+touch_dir() {
+  touch .
+}
+
+add-zsh-hook chpwd touch_dir
 
 # Aliases and Utilities
 
