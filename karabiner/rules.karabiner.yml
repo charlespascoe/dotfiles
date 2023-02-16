@@ -67,6 +67,14 @@ rules:
   #     key_code: tab
   #     modifiers: [left_command]
 
+  - desc: 'Map Option-# to Option-3'
+    from:
+      key_code: '3'
+      modifiers: [shift, option]
+    to:
+      key_code: '3'
+      modifiers: [option]
+
   - desc: 'Map Command-E to Escape in Alacritty'
     from:
       key_code: e
