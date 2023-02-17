@@ -1,0 +1,5 @@
+# --regex-javascript=/^[ \t]+([A-Za-z_][A-Za-z0-9_]*)\(.*\) {$/\1/m/
+# TODO: make this more robust
+--regex-javascript=/^[ \t]+async[ \t]+([A-Za-z_][A-Za-z0-9_]*)\(.*\) \{/\1/m/
+# --regex-javascript=/^[ \t]+([A-Za-z_][A-Za-z0-9_]*)/\1/m/
+# --regex-javascript=/([A-Za-z_]+)/\1/m/
