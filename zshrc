@@ -113,35 +113,18 @@ source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
 # export FZF_DEFAULT_COMMAND="fd --type f --ignore-file $HOME/.gitignore_global --strip-cwd-prefix"
 # NOTE the tab between %a and %N (needed for 'cut')
 # export FZF_DEFAULT_COMMAND="fd --type f -0 --ignore-file $HOME/.gitignore_global --strip-cwd-prefix | xargs -0 stat -f '%a	%N' | sort -nr | cut -f 2"
-export FZF_DEFAULT_COMMAND="_fzf_compgen_base ''"
-export FZF_CTRL_T_COMMAND="_fzf_compgen_base ''"
+export FZF_DEFAULT_COMMAND="fzf_compgen f"
+export FZF_CTRL_T_COMMAND="fzf_compgen f"
 # Prevent sorting so that more recently accessed items appear first when
 # filtering
 export FZF_DEFAULT_OPTS='--no-sort'
 
-_fzf_compgen_base() {
-  args=()
-
-  if [ -n "$1" ]; then
-    args=(--type "$1")
-  fi
-
-  if [[ "$2" == "." ]]; then
-    args+=(--strip-cwd-prefix)
-  else
-    args+=('.' "$2")
-  fi
-
-  # NOTE the tab between %a and %N (needed for 'cut')
-  fd -0 --ignore-file "$HOME/.gitignore_global" --exclude ".git" $args | xargs -0 stat -f '%a	%N' | sort -nr | cut -f 2
-}
-
 _fzf_compgen_path() {
-  _fzf_compgen_base "f" "$1"
+  fzf_compgen "f" "$1"
 }
 
 _fzf_compgen_dir() {
-  _fzf_compgen_base "d" "$1"
+  fzf_compgen "d" "$1"
 }
 
 autoload -U add-zsh-hook

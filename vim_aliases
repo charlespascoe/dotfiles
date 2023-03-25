@@ -2,7 +2,7 @@
 
 e() {
     if [ -z "$@" ]; then
-        vim `fzf`
+        fzf --multi --bind 'enter:become(vim {+})'
     else
         vim "$@"
     fi
