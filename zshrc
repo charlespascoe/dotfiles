@@ -5,6 +5,11 @@ export EDITOR=vim
 export MANPAGER="MAN=1 vim +MANPAGER --not-a-term -"
 export MANWIDTH=80
 
+# Completion
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+autoload -Uz compinit && compinit
+
 # PATH tweaks
 export PATH="$PATH:$HOME/.dotfiles/bin"
 
@@ -34,7 +39,6 @@ setopt hist_ignore_space
 setopt histignoredups
 
 # Git
-autoload -Uz compinit && compinit
 autoload -Uz vcs_info
 precmd_vcs_info() {
   vcs_info
@@ -64,7 +68,7 @@ zstyle ':vcs_info:*' enable git
 # Vi mode - clone https://github.com/jeffreytse/zsh-vi-mode into ~/.zsh-vi-mode
 
 function zvm_config() {
-  ZVM_CURSOR_STYLE_ENABLED=false
+  ZVM_CURSOR_STYLE_ENABLED=true
   ZVM_VI_HIGHLIGHT_BACKGROUND='#44475A'
 }
 
@@ -108,16 +112,36 @@ source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 # export FZF_DEFAULT_COMMAND="fd --type f --ignore-file $HOME/.gitignore_global --strip-cwd-prefix"
 # NOTE the tab between %a and %N (needed for 'cut')
-export FZF_DEFAULT_COMMAND="fd --type f -0 --ignore-file $HOME/.gitignore_global --strip-cwd-prefix | xargs -0 stat -f '%a	%N' | sort -nr | cut -f 2"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# export FZF_DEFAULT_COMMAND="fd --type f -0 --ignore-file $HOME/.gitignore_global --strip-cwd-prefix | xargs -0 stat -f '%a	%N' | sort -nr | cut -f 2"
+export FZF_DEFAULT_COMMAND="_fzf_compgen_base ''"
+export FZF_CTRL_T_COMMAND="_fzf_compgen_base ''"
 # Prevent sorting so that more recently accessed items appear first when
 # filtering
 export FZF_DEFAULT_OPTS='--no-sort'
 
-_fzf_compgen_path() {
-  # fd --type f --ignore-file "$HOME/.gitignore_global" --strip-cwd-prefix
+_fzf_compgen_base() {
+  args=()
+
+  if [ -n "$1" ]; then
+    args=(--type "$1")
+  fi
+
+  if [[ "$2" == "." ]]; then
+    args+=(--strip-cwd-prefix)
+  else
+    args+=('.' "$2")
+  fi
+
   # NOTE the tab between %a and %N (needed for 'cut')
-  fd --type f -0 --ignore-file "$HOME/.gitignore_global" --strip-cwd-prefix | xargs -0 stat -f '%a	%N' | sort -nr | cut -f 2
+  fd -0 --ignore-file "$HOME/.gitignore_global" --exclude ".git" $args | xargs -0 stat -f '%a	%N' | sort -nr | cut -f 2
+}
+
+_fzf_compgen_path() {
+  _fzf_compgen_base "f" "$1"
+}
+
+_fzf_compgen_dir() {
+  _fzf_compgen_base "d" "$1"
 }
 
 autoload -U add-zsh-hook

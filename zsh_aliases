@@ -95,7 +95,8 @@ nd() { mkdir -p $1; cd $1; }
 nr() {
     # cd "`find ~/repos ~/go/src -type d -maxdepth 1 | sed -e "s/^${HOME:gs/\\//\\\\\\/}/~/" | fzf | sed -e "s/^~/${HOME:gs/\\//\\\\\\/}/"`"
     # NOTE the tab between %a and %N (needed for 'cut')
-    cd "`find ~/repos ~/go/src -type d -maxdepth 1 | xargs stat -f '%a	%N' | sort -nr | cut -f 2 | sed -e "s/^${HOME:gs/\\//\\\\\\/}/~/" | fzf | sed -e "s/^~/${HOME:gs/\\//\\\\\\/}/"`"
+    # cd "`find ~/repos ~/go/src -type d -maxdepth 1 | xargs stat -f '%a	%N' | sort -nr | cut -f 2 | sed -e "s/^${HOME:gs/\\//\\\\\\/}/~/" | fzf | sed -e "s/^~/${HOME:gs/\\//\\\\\\/}/"`"
+    cd "`fd --type d -0 --maxdepth 1 . ~/repos ~/go/src | xargs -0 stat -f '%a	%N' | sort -nr | cut -f 2 | sed -e "s/^${HOME:gs/\\//\\\\\\/}/~/" | fzf | sed -e "s/^~/${HOME:gs/\\//\\\\\\/}/"`"
 }
 
 gs() {
