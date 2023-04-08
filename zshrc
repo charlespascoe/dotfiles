@@ -1,5 +1,13 @@
 export LANG=en_GB.UTF-8
 
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    SESSION_TYPE=remote/ssh
+else
+    case $(ps -o comm= -p "$PPID") in
+        sshd|*/sshd) SESSION_TYPE=remote/ssh;;
+    esac
+fi
+
 export EDITOR=vim
 
 export MANPAGER="MAN=1 vim +MANPAGER --not-a-term -"
@@ -13,16 +21,33 @@ autoload -Uz compinit && compinit
 # PATH tweaks
 export PATH="$PATH:$HOME/.dotfiles/bin"
 
-function precmd() {
-  # Set the title to the current working directory, shortened Vim-style
-  printf "\e]0;`print -rD "$PWD" | sed -E 's:(\.?[^/])[^/]*/:\1/:g'`\a"
-}
+PROMPT_PREFIX=''
 
-# To set the title in a similar way in bash when SSHing into a server:
-# export PROMPT_COMMAND='echo -en "\033]0;$USER@`hostname | egrep -o "^[^.]+"`:`dirs +0`\a"'
+if [[ $SESSION_TYPE == remote/* ]]; then
+    function precmd() {
+        # Set the title to the current working directory, shortened Vim-style
+        printf "\e]0; $HOST:`print -rD "$PWD" | sed -E 's:(\.?[^/])[^/]*/:\1/:g'`\a"
+    }
+
+    # To set the title in a similar way in bash when SSHing into a server:
+    # export PROMPT_COMMAND='echo -en "\033]0;$USER@`hostname | egrep -o "^[^.]+"`:`dirs +0`\a"'
+
+    # Prompt
+    # PROMPT='%F{6}%n@%m %F{5}%~$vcs_info_msg_0_ %F{#8BE9FD}%#%f '
+    # PROMPT_PREFIX='%F{6}%n@%m '
+    PROMPT_PREFIX='%F{6}%m '
+else
+    function precmd() {
+    # Set the title to the current working directory, shortened Vim-style
+        printf "\e]0;`print -rD "$PWD" | sed -E 's:(\.?[^/])[^/]*/:\1/:g'`\a"
+    }
+
+    # To set the title in a similar way in bash when SSHing into a server:
+    # export PROMPT_COMMAND='echo -en "\033]0;$USER@`hostname | egrep -o "^[^.]+"`:`dirs +0`\a"'
+fi
 
 # Prompt
-PROMPT='%F{5}%~$vcs_info_msg_0_ %F{#8BE9FD}%#%f '
+PROMPT="$PROMPT_PREFIX"'%F{5}%~$vcs_info_msg_0_ %F{#8BE9FD}%#%f '
 
 # Pass through Ctrl-S
 stty -ixon
@@ -99,14 +124,14 @@ function zvm_after_select_vi_mode() {
 
   esac
 
-  PROMPT='%F{5}%~$vcs_info_msg_0_ %F{'"$color"'}%B%#%b%f '
+  PROMPT="$PROMPT_PREFIX"'%F{5}%~$vcs_info_msg_0_ %F{'"$color"'}%B%#%b%f '
 }
 
 zvm_after_init() {
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 }
 
-source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
+[ -f $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh ] && source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 # fzf config
 
