@@ -131,12 +131,16 @@ EXEC 00;32
 .conf 00;96
 
 # Code files
-.go 00;33
-.js 00;33
-.html 00;33
 .css 00;33
-.vim 00;33
+.go 00;33
+.html 00;33
+.js 00;33
+.jsx 00;33
 .py 00;33
+.swift 00;33
+.ts 00;33
+.tsx 00;33
+.vim 00;33
 .sh 00;33
 
 # image formats

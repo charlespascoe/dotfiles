@@ -51,11 +51,15 @@ alias m=make
 # Vim
 source ~/.dotfiles/vim_aliases
 
-alias drr='vim -c "cd ~/drafts/" -c "au BufUnload <buffer> Export rtf" -c "startinsert" -c "set titlestring=draft" ~/drafts/`date +"%F_%H:%M:%S"`.bn'
+mkdir -p /tmp/drafts
+
+# alias drr='vim -c "cd ~/drafts/" -c "au BufUnload <buffer> Export rtf" -c "startinsert" -c "set titlestring=draft" ~/drafts/`date +"%F_%H:%M:%S"`.bn'
+alias drr='vim -c "cd /tmp/drafts/" -c "au BufUnload <buffer> Export rtf" -c "startinsert" -c "set titlestring=draft" /tmp/drafts/`date +"%F_%H:%M:%S"`.bn'
 
 dr() {
     ext=${1:-bn};
-    vim -c "cd ~/drafts/" -c "au BufUnload <buffer> exec &filetype =~ 'bulletnotes\\|markdown' ? 'Export' : '%yank +'" -c "startinsert" -c "set titlestring=draft" ~/drafts/`date +"%F_%H:%M:%S"`.$ext
+    # vim -c "cd ~/drafts/" -c "au BufUnload <buffer> exec &filetype =~ 'bulletnotes\\|markdown' ? 'Export' : '%yank +'" -c "startinsert" -c "set titlestring=draft" ~/drafts/`date +"%F_%H:%M:%S"`.$ext
+    vim -c "cd /tmp/drafts/" -c "au BufUnload <buffer> exec &filetype =~ 'bulletnotes\\|markdown' ? 'Export' : '%yank +'" -c "startinsert" -c "set titlestring=draft" /tmp/drafts/`date +"%F_%H:%M:%S"`.$ext
 }
 
 ## Edit dictation substitutions
