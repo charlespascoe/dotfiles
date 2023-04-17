@@ -25,6 +25,8 @@ function sess_path() {
     echo "$session"
 }
 
+alias task='vim -c "call tasks#temp()"'
+
 function es() {
     session="$(sess_path)"
 
