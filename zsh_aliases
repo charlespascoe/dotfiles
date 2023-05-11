@@ -51,6 +51,8 @@ alias m=make
 # Vim
 source ~/.dotfiles/vim_aliases
 
+export DRAFTS=$HOME/drafts
+
 alias dre='vim -c DraftRTF'
 
 dr() {
