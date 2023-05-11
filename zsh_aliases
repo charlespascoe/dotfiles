@@ -59,7 +59,8 @@ dr() {
 }
 
 ## Edit dictation substitutions
-alias eds='vim -c "au BufUnload <buffer> DictationReloadSubstitutions" ~/.vim-conf/dictation_substitutions'
+
+alias eds='vim -c "au BufUnload <buffer> DictationReloadSubstitutions" ~/.vim-conf/substitutions/'
 
 
 # Edit Serenade Custom Commands
@@ -89,6 +90,14 @@ alias fj='python3 -m json.tool'
 alias sha256='openssl dgst -sha256'
 alias td='nd ~/temp/`date +"%Y-%m-%d"`'
 alias uz=unzip
+
+cdpy() {
+    package_dir="`fd . --type d --max-depth=1 --min-depth=1 /opt/homebrew/lib/python3.*/site-packages | fzf`"
+
+    if [ -n "$package_dir" ]; then
+        cd "$package_dir"
+    fi
+}
 
 nd() { mkdir -p $1; cd $1; }
 

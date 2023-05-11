@@ -14,7 +14,7 @@ fi
 
 PROG=gstat
 
-command -v gstat 1>&2 2>/dev/null || PROG=stat
+command -v gstat 1>/dev/null 2>/dev/null || PROG=stat
 
 # NOTE the tab between %a and %N (needed for 'cut')
 # fd -0 --ignore-file "$HOME/.gitignore_global" --exclude ".git" $args | xargs -0 stat -f '%a	%N' | sort -nr | cut -f 2
