@@ -13,6 +13,9 @@ export EDITOR=vim
 export MANPAGER="MAN=1 vim +MANPAGER --not-a-term -"
 export MANWIDTH=80
 
+# Disable Brew auto-update when installing packages
+export HOMEBREW_NO_AUTO_UPDATE=1
+
 # Completion
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
