@@ -110,3 +110,23 @@ rules:
       modifiers: [control]
     conditions:
       frontmost_application_unless: ['^org\.alacritty$', '^com\.microsoft\.Outlook$']
+
+  - desc: 'Map Tab to Cmd-] in Drafts'
+    from:
+      key_code: tab
+      modifiers: []
+    to:
+      key_code: close_bracket
+      modifiers: [command]
+    conditions:
+      frontmost_application_if: ['^com\.agiletortoise\.Drafts-OSX$']
+
+  - desc: 'Map Shift-Tab to Cmd-[ in Drafts'
+    from:
+      key_code: tab
+      modifiers: [shift]
+    to:
+      key_code: open_bracket
+      modifiers: [command]
+    conditions:
+      frontmost_application_if: ['^com\.agiletortoise\.Drafts-OSX$']

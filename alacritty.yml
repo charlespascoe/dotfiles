@@ -43,6 +43,7 @@ key_bindings:
   # Fixes a strange issue with Alacritty (https://github.com/alacritty/alacritty/issues/1359)
   - { key: Q, mods: Control, chars: "\x11" }
   - { key: Back, mods: Alt, chars: "\x17"}
+  - { key: D, mods: Alt,     chars: "\x1bd"}
 
 mouse_bindings: []
 
