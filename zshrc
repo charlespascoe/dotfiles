@@ -12,6 +12,7 @@ export EDITOR=vim
 
 export MANPAGER="MAN=1 vim +MANPAGER --not-a-term -"
 export MANWIDTH=80
+export REAL_MAN=/usr/bin/man
 
 # Disable Brew auto-update when installing packages
 export HOMEBREW_NO_AUTO_UPDATE=1
@@ -22,7 +23,7 @@ FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 autoload -Uz compinit && compinit
 
 # PATH tweaks
-export PATH="$PATH:$HOME/.dotfiles/bin"
+export PATH="$HOME/.dotfiles/bin:$PATH"
 
 PROMPT_PREFIX=''
 
