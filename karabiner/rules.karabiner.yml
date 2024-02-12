@@ -109,7 +109,7 @@ rules:
       key_code: e
       modifiers: [control]
     conditions:
-      frontmost_application_unless: ['^org\.alacritty$', '^com\.microsoft\.Outlook$']
+      frontmost_application_unless: ['^org\.alacritty$', '^com\.microsoft\..*$']
 
   - desc: 'Map Tab to Cmd-] in Drafts'
     from:

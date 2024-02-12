@@ -1,4 +1,5 @@
 *.swp
+*.swo
 Session.vim
 .DS_Store
 tags
@@ -10,3 +11,5 @@ tags
 *.bak
 __pycache__/
 node_modules/
+/tags.lock
+/tags.temp

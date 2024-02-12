@@ -125,10 +125,6 @@ EXEC 00;32
 .docx 00;96
 .xls 00;96
 .xlsx 00;96
-.yaml 00;96
-.yml 00;96
-.json 00;96
-.conf 00;96
 
 # Code files
 .css 00;33
@@ -142,6 +138,17 @@ EXEC 00;32
 .tsx 00;33
 .vim 00;33
 .sh 00;33
+.cs 00;33
+.robot 00;33
+.resource 00;33
+
+# Data
+.csv 38;5;214
+.xml 38;5;214
+.json 38;5;214
+.yaml 38;5;214
+.yml 38;5;214
+.conf 38;5;214
 
 # image formats
 .gif 38;5;158

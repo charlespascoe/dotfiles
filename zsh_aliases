@@ -90,8 +90,12 @@ alias py='python3'
 alias pr='ptpython'
 alias fj='python3 -m json.tool'
 alias sha256='openssl dgst -sha256'
-alias td='nd ~/temp/`date +"%Y-%m-%d"`'
+alias sd='nd ~/scratch/`date +"%Y/%m/%d"`'
 alias uz=unzip
+
+rfc() {
+    vim `rfcget $1`
+}
 
 cdpy() {
     package_dir="`fd . --type d --max-depth=1 --min-depth=1 /opt/homebrew/lib/python3.*/site-packages | fzf`"

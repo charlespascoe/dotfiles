@@ -4,7 +4,7 @@ e() {
     if [ -z "$@" ]; then
         fzf --multi --bind 'enter:become(vim {+})'
     else
-        vim "$@"
+        vim $@
     fi
 }
 
@@ -32,12 +32,13 @@ function es() {
 
     if [ -d .git ]; then
         if [ -f .sessions/_active ]; then
-            echo "Can't start a new session because there is an existing session"
-            return 1
+            echo "Switching to existing session"
+            tmux switch-client -t "$(cat .sessions/_active)"
+            return $?
         fi
 
         mkdir -p .sessions
-        touch .sessions/_active
+        echo $TMUX_PANE > .sessions/_active
     fi
 
     local cmd=(vim)
