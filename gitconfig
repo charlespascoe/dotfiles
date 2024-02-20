@@ -12,6 +12,7 @@
     br = branch
     ds = diff --cached
     dn = diff --no-index
+    dni = diff --no-index
     u = push
     d = pull
     rs = reset

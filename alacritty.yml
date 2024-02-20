@@ -27,7 +27,7 @@ font:
     family: JetBrains Mono
     style: Italic
 
-  size: 12
+  size: 13
 
 live_config_reload: true
 
@@ -44,6 +44,7 @@ key_bindings:
   - { key: Q, mods: Control, chars: "\x11" }
   - { key: Back, mods: Alt, chars: "\x17"}
   - { key: D, mods: Alt,     chars: "\x1bd"}
+  - { key: C, mods: Alt,     chars: "\x1bc"}
 
 mouse_bindings: []
 
