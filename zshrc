@@ -20,8 +20,6 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 # Completion
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
-autoload -Uz compinit && compinit
-
 # PATH tweaks
 export PATH="$HOME/.dotfiles/bin:$PATH"
 
@@ -179,3 +177,6 @@ export PTPYTHON_CONFIG_HOME=~/.config/ptpython/
 # The patch version of Vim changes in the path, so this ensures 'n vim' goes to
 # the right place (at least for vim 9.0)
 export DIR_vim="$(dirname $(dirname $(readlink -f `which vim`)))/share/vim/vim90"
+
+# Only load compinit after aliases etc.
+autoload -Uz compinit && compinit
