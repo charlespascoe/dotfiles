@@ -84,7 +84,7 @@ epb() {
 # Utils
 alias c='clear'
 alias n=g
-alias hc='history -c'
+alias hc='history -p'
 alias ls='/opt/homebrew/bin/gls -lhG --color=auto --group-directories-first'
 alias py='python3'
 alias pr='ptpython'
@@ -122,6 +122,10 @@ demo() {
     port="${1:-8000}"
     echo "Running demo for port $port"
     ssh -NR 12345:127.0.0.1:$port vps
+}
+
+alert() {
+    osascript -e "display notification \"$*\" with title \"Alert\""
 }
 
 # Work-specific

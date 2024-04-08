@@ -20,6 +20,11 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 # Completion
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
+# Utilities
+
+autoload -U zmv
+autoload -Uz compinit && compinit # NOTE: compinit is also run again after loading aliases
+
 # PATH tweaks
 export PATH="$HOME/.dotfiles/bin:$PATH"
 
@@ -179,4 +184,4 @@ export PTPYTHON_CONFIG_HOME=~/.config/ptpython/
 export DIR_vim="$(dirname $(dirname $(readlink -f `which vim`)))/share/vim/vim90"
 
 # Only load compinit after aliases etc.
-autoload -Uz compinit && compinit
+compinit

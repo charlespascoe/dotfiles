@@ -45,6 +45,7 @@ key_bindings:
   - { key: Back, mods: Alt, chars: "\x17"}
   - { key: D, mods: Alt,     chars: "\x1bd"}
   - { key: C, mods: Alt,     chars: "\x1bc"}
+  - { key: T, mods: Alt,     chars: "\x1bt"}
 
 mouse_bindings: []
 
