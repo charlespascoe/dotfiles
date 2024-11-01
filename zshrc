@@ -67,8 +67,8 @@ bindkey -v "^[[4~" end-of-line
 HISTFILE=~/.zsh_hist
 HISTSIZE=10000
 SAVEHIST=10000
-setopt hist_ignore_space
-setopt histignoredups
+setopt HIST_IGNORE_SPACE
+setopt HIST_IGNORE_DUPS
 
 # Git
 autoload -Uz vcs_info
@@ -176,6 +176,8 @@ add-zsh-hook chpwd touch_dir
 . ~/.dotfiles/bashmarks.sh
 
 export PTPYTHON_CONFIG_HOME=~/.config/ptpython/
+
+export BLOOP_DIR=~/.bloop
 
 # Dynamic Bashmarks
 

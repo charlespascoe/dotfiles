@@ -90,8 +90,10 @@ alias py='python3'
 alias pr='ptpython'
 alias fj='python3 -m json.tool'
 alias sha256='openssl dgst -sha256'
-alias sd='nd ~/scratch/`date +"%Y/%m/%d"`'
+alias sd='nd ~/scratch/`date +"%Y/%m/%d"` && rm -f ~/scratch/latest && ln -s "`pwd`" ~/scratch/latest'
 alias uz=unzip
+alias serve='sleep 0.5 && open "http://127.0.0.1:8000" &; python3 -m http.server'
+alias teecopy='tee >(pbcopy)'
 
 rfc() {
     vim `rfcget $1`
