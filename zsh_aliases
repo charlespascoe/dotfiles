@@ -82,6 +82,7 @@ epb() {
 }
 
 # Utils
+alias ag='ag --pager="less -RF"'
 alias c='clear'
 alias n=g
 alias hc='history -p'
