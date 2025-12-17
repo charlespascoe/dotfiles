@@ -130,6 +130,14 @@ alert() {
     osascript -e "display notification \"$*\" with title \"Alert\""
 }
 
+oc() {
+    if [ -f "go.mod" ]; then
+        opencode --agent go-dev "$@"
+    else
+        opencode "$@"
+    fi
+}
+
 # Work-specific
 
 excel() {
