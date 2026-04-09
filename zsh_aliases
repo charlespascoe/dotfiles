@@ -95,6 +95,7 @@ alias sd='nd ~/scratch/`date +"%Y/%m/%d"` && rm -f ~/scratch/latest && ln -s "`p
 alias uz=unzip
 alias serve='sleep 0.5 && open "http://127.0.0.1:8000" &; python3 -m http.server'
 alias teecopy='tee >(pbcopy)'
+alias oc='opencode'
 
 rfc() {
     vim `rfcget $1`
@@ -129,14 +130,6 @@ demo() {
 
 alert() {
     osascript -e "display notification \"$*\" with title \"Alert\""
-}
-
-oc() {
-    if [ -f "go.mod" ]; then
-        opencode --agent go-dev "$@"
-    else
-        opencode "$@"
-    fi
 }
 
 # Work-specific

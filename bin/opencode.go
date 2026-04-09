@@ -14,10 +14,6 @@ func main() {
 
 	args := os.Args[1:]
 
-	if _, err := os.Stat("go.mod"); err == nil {
-		args = append([]string{"--agent", "go-dev"}, args...)
-	}
-
 	cmd := exec.Command(origOpencode, args...)
 
 	cmd.Stdout = os.Stdout
