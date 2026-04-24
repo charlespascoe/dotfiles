@@ -1,3 +1,18 @@
+# Instead of `font.use_thin_strokes: true`, run the following in the terminal:
+#   $ defaults write org.alacritty AppleFontSmoothing -int 0
+# To restore:
+#   $ defaults delete org.alacritty AppleFontSmoothing
+# You'll need to restart Alacritty each time.
+
+# Dracula theme for Alacritty
+# https://draculatheme.com/alacritty
+#
+# Color palette
+# https://spec.draculatheme.com
+#
+# Template
+# https://github.com/alacritty/alacritty/blob/master/alacritty.yml
+
 live_config_reload = true
 
 [colors.bright]
