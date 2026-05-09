@@ -14,7 +14,7 @@ rules:
     to:
       key_code: delete_or_backspace
 
-  - desc: 'Change Ctrl-. to Ctrl-z in Alacritty'
+  - desc: 'Change Ctrl-. to Ctrl-z in Alacritty/Ghostty'
     from:
       key_code: period
       modifiers: [control]
@@ -22,16 +22,16 @@ rules:
       key_code: z
       modifiers: [control]
     conditions:
-      frontmost_application_if: ['^org\.alacritty$']
+      frontmost_application_if: ['^org\.alacritty$', '^com\.mitchellh\.ghostty$']
 
-  - desc: 'Change Ctrl-z to No-op in Alacritty'
+  - desc: 'Change Ctrl-z to No-op in Alacritty/Ghostty'
     from:
       key_code: z
       modifiers: [control]
     to:
       key_code: vk_none
     conditions:
-      frontmost_application_if: ['^org\.alacritty$']
+      frontmost_application_if: ['^org\.alacritty$', '^com\.mitchellh\.ghostty$']
 
   - desc: 'Map Command-D to Ctrl-D for dictation in Vim'
     from:
@@ -41,7 +41,7 @@ rules:
       key_code: d
       modifiers: [left_control]
     conditions:
-      frontmost_application_if: ['^org\.alacritty$']
+      frontmost_application_if: ['^org\.alacritty$', '^com\.mitchellh\.ghostty$']
 
   - desc: 'Map Command-Up to Command-Plus'
     from:
@@ -75,14 +75,14 @@ rules:
       key_code: '3'
       modifiers: [option]
 
-  - desc: 'Map Command-E to Escape in Alacritty'
+  - desc: 'Map Command-E to Escape in Alacritty/Ghostty'
     from:
       key_code: e
       modifiers: [command]
     to:
       key_code: escape
     conditions:
-      frontmost_application_if: ['^org\.alacritty$']
+      frontmost_application_if: ['^org\.alacritty$', '^com\.mitchellh\.ghostty$']
 
   - desc: 'Map Alt-I to Ctrl-y in Terminal (for snippets)'
     from:
@@ -92,7 +92,7 @@ rules:
       key_code: y
       modifiers: [left_control]
     conditions:
-      frontmost_application_if: ['^org\.alacritty$']
+      frontmost_application_if: ['^org\.alacritty$', '^com\.mitchellh\.ghostty$']
 
   - desc: 'Map F19 to Alt-Space for Serenade'
     from:
@@ -109,7 +109,7 @@ rules:
       key_code: e
       modifiers: [control]
     conditions:
-      frontmost_application_unless: ['^org\.alacritty$', '^com\.microsoft\..*$']
+      frontmost_application_unless: ['^org\.alacritty$', '^com\.mitchellh\.ghostty$', '^com\.microsoft\..*$']
 
   - desc: 'Map Tab to Cmd-] in Drafts'
     from:
@@ -130,3 +130,22 @@ rules:
       modifiers: [command]
     conditions:
       frontmost_application_if: ['^com\.agiletortoise\.Drafts-OSX$']
+
+  - desc: 'Disable Command-R in ChatWise'
+    from:
+      key_code: r
+      modifiers: [command]
+    to:
+      key_code: vk_none
+    conditions:
+      frontmost_application_if: ['^app\.chatwise$']
+
+  - desc: 'Map Command-Shift-R to Command-R in ChatWise'
+    from:
+      key_code: r
+      modifiers: [command, shift]
+    to:
+      key_code: r
+      modifiers: [command]
+    conditions:
+      frontmost_application_if: ['^app\.chatwise$']

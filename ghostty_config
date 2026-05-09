@@ -1,0 +1,55 @@
+# Needs to be linked to ~/.config/ghostty/config
+
+# Font
+font-family = JetBrainsMonoNL NF
+font-size = 11.5
+
+# Colors – primary
+background = #282a36
+foreground = #f8f8f2
+
+# Colors – normal (indices 0–7)
+palette = 0=#21222c
+palette = 1=#ff5555
+palette = 2=#50fa7b
+palette = 3=#f1fa8c
+palette = 4=#bd93f9
+palette = 5=#ff79c6
+palette = 6=#8be9fd
+palette = 7=#f8f8f2
+
+# Colors – bright (indices 8–15)
+palette = 8=#6272a4
+palette = 9=#ff6e6e
+palette = 10=#69ff94
+palette = 11=#ffffa5
+palette = 12=#d6acff
+palette = 13=#ff92df
+palette = 14=#a4ffff
+palette = 15=#ffffff
+
+# Selection (text retains cell foreground — omit selection-foreground for that behaviour)
+selection-background = #44475a
+
+# Terminal type
+term = xterm-256color
+
+# Scrollback
+scrollback-limit = 0
+
+# Window
+fullscreen = true
+window-padding-balance = true
+
+# Mouse
+mouse-hide-while-typing = true
+
+# Key bindings
+keybind = ctrl+space=text:\x00
+keybind = ctrl+q=text:\x11
+keybind = alt+backspace=text:\x17
+keybind = alt+d=text:\x1bd
+keybind = alt+c=text:\x1bc
+keybind = alt+t=text:\x1bt
+keybind = alt+v=text:\x1bv
+keybind = shift+enter=text:\x1b[13;2u
