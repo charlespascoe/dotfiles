@@ -46,7 +46,7 @@ selection-background = #44475a
 term = xterm-256color
 
 # Scrollback
-scrollback-limit = 0
+scrollback-limit = 10000
 
 # Window
 fullscreen = true

@@ -63,6 +63,8 @@ stty -ixon
 bindkey "^[[4~" end-of-line
 bindkey -v "^[[4~" end-of-line
 
+bindkey -s '\e[32;2u' ' ' # Shift+Space (usually clears prompt) -> Space
+
 # History
 HISTFILE=~/.zsh_hist
 HISTSIZE=10000
