@@ -2,11 +2,17 @@
 
 # Font
 font-family = JetBrainsMonoNL NF
-font-size = 11.5
+font-family-bold = JetBrainsMonoNL NF ExtraBold
+font-family-bold-italic = JetBrainsMonoNL NF ExtraBold Italic
+font-size = 13.5
+font-thicken = false
+# Minimum amount of font thickening
+font-thicken-strength = 0
+font-feature = -calt, -liga, -dlig
 
 # Colors – primary
 background = #282a36
-foreground = #f8f8f2
+foreground = #ffffff
 
 # Colors – normal (indices 0–7)
 palette = 0=#21222c
@@ -16,7 +22,7 @@ palette = 3=#f1fa8c
 palette = 4=#bd93f9
 palette = 5=#ff79c6
 palette = 6=#8be9fd
-palette = 7=#f8f8f2
+palette = 7=#ffffff
 
 # Colors – bright (indices 8–15)
 palette = 8=#6272a4
@@ -40,6 +46,8 @@ scrollback-limit = 0
 # Window
 fullscreen = true
 window-padding-balance = true
+window-padding-color = extend
+# window-colorspace = display-p3
 
 # Mouse
 mouse-hide-while-typing = true
@@ -48,8 +56,8 @@ mouse-hide-while-typing = true
 keybind = ctrl+space=text:\x00
 keybind = ctrl+q=text:\x11
 keybind = alt+backspace=text:\x17
-keybind = alt+d=text:\x1bd
-keybind = alt+c=text:\x1bc
-keybind = alt+t=text:\x1bt
-keybind = alt+v=text:\x1bv
-keybind = shift+enter=text:\x1b[13;2u
+keybind = alt+d=esc:d
+keybind = alt+c=esc:c
+keybind = alt+t=esc:t
+keybind = alt+v=esc:v
+keybind = shift+enter=csi:13;2u
