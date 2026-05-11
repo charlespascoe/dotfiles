@@ -31,5 +31,8 @@
     ui = true
 [core]
     excludesfile = ~/.gitignore_global
+    pager = less --tabs 4
+[interactive]
+    diffFilter = expand -t4
 [merge]
     conflictStyle = diff3
