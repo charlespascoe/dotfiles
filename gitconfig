@@ -33,6 +33,6 @@
     excludesfile = ~/.gitignore_global
     pager = less --tabs 4
 [interactive]
-    diffFilter = expand -t4
+    diffFilter = sed 's/\t/    /g'
 [merge]
     conflictStyle = diff3
