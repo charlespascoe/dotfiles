@@ -17,7 +17,7 @@ foreground = #ffffff
 # Cursor colours - invert cell colours, unless it's a dark colour
 cursor-color = cell-foreground
 cursor-text = cell-background
-minimum-contrast = 1.5
+minimum-contrast = 1.4
 
 # Colors – normal (indices 0–7)
 palette = 0=#21222c
