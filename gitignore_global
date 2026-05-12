@@ -2,7 +2,6 @@
 *.swo
 Session.vim
 .DS_Store
-tags
 .sessions/
 .viminfo
 *.gz
@@ -11,5 +10,6 @@ tags
 *.bak
 __pycache__/
 node_modules/
+/tags
 /tags.lock
 /tags.temp
