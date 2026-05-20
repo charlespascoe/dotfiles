@@ -1,0 +1,26 @@
+--langdef=Swift
+--map-Swift=+.swift
+
+--kinddef-Swift=c,class,class definitions
+--kinddef-Swift=s,struct,struct definitions
+--kinddef-Swift=p,protocol,protocol definitions
+--kinddef-Swift=e,enum,enum definitions
+--kinddef-Swift=E,enumcase,enum case values
+--kinddef-Swift=f,function,function definitions
+--kinddef-Swift=t,typealias,type aliases
+--kinddef-Swift=x,extension,extensions
+--kinddef-Swift=v,variable,variable definitions
+--kinddef-Swift=a,actor,actor definitions
+--kinddef-Swift=m,macro,macro definitions
+
+--regex-Swift=/^[ \t]*(open|public|internal|fileprivate|private|final)?[ \t]*(open|public|internal|fileprivate|private|final)?[ \t]*class[ \t]+([A-Za-z_][A-Za-z0-9_]*)/\3/c/
+--regex-Swift=/^[ \t]*(open|public|internal|fileprivate|private)?[ \t]*struct[ \t]+([A-Za-z_][A-Za-z0-9_]*)/\2/s/
+--regex-Swift=/^[ \t]*(open|public|internal|fileprivate|private)?[ \t]*protocol[ \t]+([A-Za-z_][A-Za-z0-9_]*)/\2/p/
+--regex-Swift=/^[ \t]*(open|public|internal|fileprivate|private)?[ \t]*enum[ \t]+([A-Za-z_][A-Za-z0-9_]*)/\2/e/
+--regex-Swift=/^[ \t]*case[ \t]+([A-Za-z_][A-Za-z0-9_]*)/\1/E/
+--regex-Swift=/^[ \t]*(open|public|internal|fileprivate|private)?[ \t]*(static|class|mutating|nonisolated|override)?[ \t]*func[ \t]+([A-Za-z_][A-Za-z0-9_]*)/\3/f/
+--regex-Swift=/^[ \t]*(open|public|internal|fileprivate|private)?[ \t]*typealias[ \t]+([A-Za-z_][A-Za-z0-9_]*)/\2/t/
+--regex-Swift=/^[ \t]*(open|public|internal|fileprivate|private)?[ \t]*extension[ \t]+([A-Za-z_][A-Za-z0-9_]*)/\2/x/
+--regex-Swift=/^[ \t]*(open|public|internal|fileprivate|private)?[ \t]*(static|lazy|weak|unowned)?[ \t]*(let|var)[ \t]+([A-Za-z_][A-Za-z0-9_]*)/\4/v/
+--regex-Swift=/^[ \t]*(open|public|internal|fileprivate|private)?[ \t]*(distributed)?[ \t]*actor[ \t]+([A-Za-z_][A-Za-z0-9_]*)/\3/a/
+--regex-Swift=/^[ \t]*(open|public|internal|fileprivate|private)?[ \t]*macro[ \t]+([A-Za-z_][A-Za-z0-9_]*)/\2/m/
