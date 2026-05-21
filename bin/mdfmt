@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if ! command -v prettier &>/dev/null; then
+    echo "error: prettier is not installed" >&2
+    exit 1
+fi
+
+prettier --parser markdown --tab-width 4 --print-width 80 --prose-wrap always --write $@
