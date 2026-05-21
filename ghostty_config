@@ -60,6 +60,7 @@ mouse-hide-while-typing = true
 # Key bindings
 keybind = ctrl+space=text:\x00
 keybind = ctrl+q=text:\x11
+keybind = alt+3=text:£
 keybind = alt+backspace=text:\x17
 keybind = alt+d=esc:d
 keybind = alt+c=esc:c
