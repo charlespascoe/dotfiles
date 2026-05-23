@@ -67,3 +67,6 @@ keybind = alt+c=esc:c
 keybind = alt+t=esc:t
 keybind = alt+v=esc:v
 keybind = shift+enter=csi:13;2u
+
+# Map cmd+z to ctrl+shift+alt+z for undo
+keybind = super+z=csi:122;8u
