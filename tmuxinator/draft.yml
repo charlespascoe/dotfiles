@@ -1,0 +1,11 @@
+# ~/.config/tmuxinator/draft.yml
+
+name: draft
+root: ~/
+
+attach: false
+
+windows:
+  - draft:
+      panes:
+        - export DRAFT=1; sleep 2; while true; do vim -c DraftReturnMarkdown; sleep 5; done

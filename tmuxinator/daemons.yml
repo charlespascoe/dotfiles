@@ -1,0 +1,16 @@
+# ~/.config/tmuxinator/daemons.yml
+
+name: daemons
+root: ~/
+
+attach: false
+
+windows:
+  - dictation:
+      root: /Users/charles/go/src/dictation
+      panes:
+        - ./dictation -d 'Dictation Microphone' --model ./models/ggml-small.en.bin --subs ./substitutions --subs /Users/charles/.vim-conf/substitutions --inactive-dur 750ms
+  - piland:
+      root: /Users/charles/repos/PiLand
+      panes:
+        - make run
