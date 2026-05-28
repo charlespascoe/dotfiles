@@ -184,8 +184,8 @@ export BLOOP_DIR=~/.bloop
 # Dynamic Bashmarks
 
 # The patch version of Vim changes in the path, so this ensures 'n vim' goes to
-# the right place (at least for vim 9.0)
-export DIR_vim="$(dirname $(dirname $(readlink -f `which vim`)))/share/vim/vim90"
+# the right place (at least for vim 9.2)
+export DIR_vim="$(dirname $(dirname $(readlink -f `which vim`)))/share/vim/vim92"
 
 # Only load compinit after aliases etc.
 compinit
