@@ -11,13 +11,13 @@ font-thicken-strength = 0
 font-feature = -calt, -liga, -dlig
 
 # Colors – primary
-background = #282a36
+background = #23242e
 foreground = #ffffff
 
 # Cursor colours - invert cell colours, unless it's a dark colour
 cursor-color = cell-foreground
 cursor-text = cell-background
-minimum-contrast = 1.4
+minimum-contrast = 1.5
 
 # Colors – normal (indices 0–7)
 palette = 0=#21222c
