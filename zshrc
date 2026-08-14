@@ -14,8 +14,8 @@ export MANPAGER="MAN=1 vim +MANPAGER --not-a-term -"
 export MANWIDTH=80
 export REAL_MAN=/usr/bin/man
 
-# Disable Brew auto-update when installing packages
 export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_ASK=1
 
 # Completion
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
@@ -25,8 +25,14 @@ FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 autoload -U zmv
 autoload -Uz compinit && compinit # NOTE: compinit is also run again after loading aliases
 
-# PATH tweaks
-export PATH="$HOME/.dotfiles/bin:$PATH"
+# LS_COLORS for GNU ls
+if (( $+commands[gdircolors] )); then
+    eval "$(gdircolors -b ~/.dotfiles/dircolors)"
+fi
+
+# PATH
+export PATH="$HOME/.pi/bin:$HOME/.dotfiles/bin:$HOME/.bin:/opt/homebrew/bin:$HOME/.vim-conf/bin:$HOME/go/bin:$PATH"
+export PATH="$PATH:$HOME/.dotnet/tools:$HOME/.local/bin"
 
 PROMPT_PREFIX=''
 

@@ -138,6 +138,7 @@ EXEC 00;32
 .tsx 00;33
 .vim 00;33
 .sh 00;33
+.zsh 00;33
 .cs 00;33
 .robot 00;33
 .resource 00;33
