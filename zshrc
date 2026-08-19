@@ -14,6 +14,9 @@ export MANPAGER="MAN=1 vim +MANPAGER --not-a-term -"
 export MANWIDTH=80
 export REAL_MAN=/usr/bin/man
 
+export PATH="$HOME/.pi/bin:$HOME/.dotfiles/bin:$HOME/.bin:/opt/homebrew/bin:$HOME/.vim-conf/bin:$HOME/go/bin:$PATH"
+export PATH="$PATH:$HOME/.dotnet/tools:$HOME/.local/bin"
+
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_ASK=1
 
@@ -29,10 +32,6 @@ autoload -Uz compinit && compinit # NOTE: compinit is also run again after loadi
 if (( $+commands[gdircolors] )); then
     eval "$(gdircolors -b ~/.dotfiles/dircolors)"
 fi
-
-# PATH
-export PATH="$HOME/.pi/bin:$HOME/.dotfiles/bin:$HOME/.bin:/opt/homebrew/bin:$HOME/.vim-conf/bin:$HOME/go/bin:$PATH"
-export PATH="$PATH:$HOME/.dotnet/tools:$HOME/.local/bin"
 
 PROMPT_PREFIX=''
 

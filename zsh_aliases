@@ -95,6 +95,7 @@ alias uz=unzip
 alias serve='sleep 0.5 && open "http://127.0.0.1:8000" &; python3 -m http.server'
 alias teecopy='tee >(pbcopy)'
 alias oc='opencode'
+alias pins='pi --no-session'
 
 sd() {
     nd ~/scratch/`date +"%Y/%m/%d"`/$1 && rm -f ~/scratch/latest && ln -s "`pwd`" ~/scratch/latest
