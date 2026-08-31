@@ -96,6 +96,12 @@ alias serve='sleep 0.5 && open "http://127.0.0.1:8000" &; python3 -m http.server
 alias teecopy='tee >(pbcopy)'
 alias oc='opencode'
 alias pins='pi --no-session'
+alias picns='pib --no-session'
+
+pic() {
+    # Create a new pure chat session in pi, no files or directories
+    (nd ~/.pi/chat-only && pi "$@")
+}
 
 sd() {
     nd ~/scratch/`date +"%Y/%m/%d"`/$1 && rm -f ~/scratch/latest && ln -s "`pwd`" ~/scratch/latest
