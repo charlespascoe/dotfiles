@@ -96,7 +96,7 @@ alias serve='sleep 0.5 && open "http://127.0.0.1:8000" &; python3 -m http.server
 alias teecopy='tee >(pbcopy)'
 alias oc='opencode'
 alias pins='pi --no-session'
-alias picns='pib --no-session'
+alias picns='pic --no-session'
 
 pic() {
     # Create a new pure chat session in pi, no files or directories
@@ -125,7 +125,7 @@ nr() {
     # cd "`find ~/repos ~/go/src -type d -maxdepth 1 | sed -e "s/^${HOME:gs/\\//\\\\\\/}/~/" | fzf | sed -e "s/^~/${HOME:gs/\\//\\\\\\/}/"`"
     # NOTE the tab between %a and %N (needed for 'cut')
     # cd "`find ~/repos ~/go/src -type d -maxdepth 1 | xargs stat -f '%a	%N' | sort -nr | cut -f 2 | sed -e "s/^${HOME:gs/\\//\\\\\\/}/~/" | fzf | sed -e "s/^~/${HOME:gs/\\//\\\\\\/}/"`"
-    cd "`fd --type d -0 --maxdepth 1 . ~/repos ~/go/src | xargs -0 stat -f '%a	%N' | sort -nr | cut -f 2 | sed -e "s/^${HOME:gs/\\//\\\\\\/}/~/" | fzf | sed -e "s/^~/${HOME:gs/\\//\\\\\\/}/"`"
+    cd "`fd --type d --hidden --no-ignore -0 --maxdepth 3 '^.git$' ~/repos ~/go/src --exclude archive | xargs -0 stat -f '%a	%N' | sort -nr | cut -f 2 | sed 's|/\.git/$||' | sed -e "s/^${HOME:gs/\\//\\\\\\/}/~/" | fzf | sed -e "s/^~/${HOME:gs/\\//\\\\\\/}/"`"
 }
 
 gs() {
