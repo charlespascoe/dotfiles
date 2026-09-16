@@ -14,35 +14,6 @@ rules:
     to:
       key_code: delete_or_backspace
 
-  - desc: 'Change Ctrl-. to Ctrl-z in Alacritty/Ghostty'
-    from:
-      key_code: period
-      modifiers: [control]
-    to:
-      key_code: z
-      modifiers: [control]
-    conditions:
-      frontmost_application_if: ['^org\.alacritty$', '^com\.mitchellh\.ghostty$']
-
-  - desc: 'Change Ctrl-z to No-op in Alacritty/Ghostty'
-    from:
-      key_code: z
-      modifiers: [control]
-    to:
-      key_code: vk_none
-    conditions:
-      frontmost_application_if: ['^org\.alacritty$', '^com\.mitchellh\.ghostty$']
-
-  - desc: 'Map Command-D to Ctrl-D for dictation in Vim'
-    from:
-      key_code: d
-      modifiers: [command]
-    to:
-      key_code: d
-      modifiers: [left_control]
-    conditions:
-      frontmost_application_if: ['^org\.alacritty$', '^com\.mitchellh\.ghostty$']
-
   - desc: 'Map Command-Up to Command-Plus'
     from:
       key_code: up_arrow
@@ -58,14 +29,6 @@ rules:
     to:
       key_code: keypad_hyphen
       modifiers: [command]
-
-  # - desc: 'Map Command-` to Command-Tab'
-  #   from:
-  #     key_code: grave_accent_and_tilde
-  #     modifiers: [command]
-  #   to:
-  #     key_code: tab
-  #     modifiers: [left_command]
 
   - desc: 'Map Option-# to Option-3'
     from:
@@ -93,13 +56,6 @@ rules:
       modifiers: [left_control]
     conditions:
       frontmost_application_if: ['^org\.alacritty$', '^com\.mitchellh\.ghostty$']
-
-  - desc: 'Map F19 to Alt-Space for Serenade'
-    from:
-      key_code: f19
-    to:
-      key_code: spacebar
-      modifiers: [option]
 
   - desc: 'Map End to Ctrl-E'
     from:
