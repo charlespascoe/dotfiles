@@ -1,6 +1,6 @@
-# ~/.config/tmuxinator/daemons.yml
+# ~/.config/tmuxinator/zdaemons.yml
 
-name: daemons
+name: zdaemons
 root: ~/
 
 attach: false
