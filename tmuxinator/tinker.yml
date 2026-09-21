@@ -1,0 +1,10 @@
+# ~/.config/tmuxinator/tinker.yml
+
+name: tinker
+root: ~/
+
+attach: false
+
+windows:
+  - ~:
+      root: /Users/charles/.pi/agent/
