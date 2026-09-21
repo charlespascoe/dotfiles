@@ -1,6 +1,6 @@
-# ~/.config/tmuxinator/zdraft.yml
+# ~/.config/tmuxinator/zdrafts.yml
 
-name: zdraft
+name: zdrafts
 root: ~/
 
 attach: false
