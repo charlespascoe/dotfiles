@@ -63,6 +63,7 @@ keybind = ctrl+q=text:\x11
 keybind = ctrl+s=csi:115;5u
 keybind = alt+3=text:£
 keybind = alt+backspace=text:\x17
+keybind = shift+backspace=text:\x7f
 keybind = alt+d=esc:d
 keybind = alt+c=esc:c
 keybind = alt+t=esc:t
