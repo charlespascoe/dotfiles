@@ -1,0 +1,7 @@
+# ~/.golangci.yml
+version: "2"
+
+formatters:
+  enable:
+    - gofumpt
+    - goimports
