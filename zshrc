@@ -192,5 +192,8 @@ export BLOOP_DIR=~/.bloop
 # the right place (at least for vim 9.2)
 export DIR_vim="$(dirname $(dirname $(readlink -f `which vim`)))/share/vim/vim92"
 
+# ripgrep global config
+export RIPGREP_CONFIG_PATH=~/.dotfiles/rgconf
+
 # Only load compinit after aliases etc.
 compinit
