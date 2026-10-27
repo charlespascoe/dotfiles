@@ -1,6 +1,16 @@
 # ~/.golangci.yml
 version: "2"
 
+linters:
+  enable:
+    - revive
+    - testifylint
+    - forcetypeassert
+    - errorlint
+    - exhaustive
+    - gosec
+    - nolintlint
+
 formatters:
   enable:
     - gofumpt
