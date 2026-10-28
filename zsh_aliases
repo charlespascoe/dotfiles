@@ -29,7 +29,7 @@ tm() {
             tmux -u new -d -s $1
         fi
 
-        tmux -u switch -t $1
+        tmux -u switch-client -t $1
     else
         tmux -u new -A -s $1
     fi
