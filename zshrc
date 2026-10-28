@@ -70,6 +70,8 @@ bindkey -v "^[[4~" end-of-line
 
 bindkey -s '\e[32;2u' ' ' # Shift+Space (usually clears prompt) -> Space
 
+bindkey -v '^[t' transpose-words # Option+T to transpose words (like Ctrl+T in bash)
+
 # History
 HISTFILE=~/.zsh_hist
 HISTSIZE=10000
