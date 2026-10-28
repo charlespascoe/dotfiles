@@ -69,9 +69,9 @@ alias eds='vim -c "au BufUnload <buffer> DictationReloadSubstitutions" ~/.vim-co
 alias esc='vim /Users/charles/.serenade/scripts/custom.js'
 
 # Pasteboard
-alias copy=pbcopy
-alias paste=pbpaste
-alias pbapnl='echo "`paste`" | copy'
+alias pbapnl='echo "`pbpaste`" | pbcopy'
+alias pbp=pbpaste
+alias pbc=pbcopy
 
 epb() {
     if [ -z "$1" ]; then
@@ -94,6 +94,7 @@ alias sha256='openssl dgst -sha256'
 alias uz=unzip
 alias serve='sleep 0.5 && open "http://127.0.0.1:8000" &; python3 -m http.server'
 alias teecopy='tee >(pbcopy)'
+alias show-ip="ipconfig getifaddr \$(route -n get default | awk '/interface: /{print \$2}')"
 alias oc='opencode'
 alias pins='pi --no-session'
 alias pcns='pc --no-session'
